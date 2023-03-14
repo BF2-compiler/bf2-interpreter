@@ -21,8 +21,9 @@ expression
     : expression expression
     | loop
     | ifStatement
-    | comparison
+    | boolStatement
     | assign
+    | directionalMove
     ;
     
 loop
@@ -49,19 +50,14 @@ boolStatement
     | lparenthesis boolStatement rparenthesis
     ;
     
-comparison
-    : varGetter comparisonOperator varGetter
-    ;
-    
-//TODO
+
 assign
-    : assignOperator directionalMove getOperator
+    : assignOperator expression getOperator
     ;
     
-//TODO
 varGetter
     : number
-    | directionalMove
+    | expression getOperator
     ;
     
 logicalOperator
