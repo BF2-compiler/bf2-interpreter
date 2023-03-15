@@ -1,4 +1,4 @@
-grammar bf^2;
+grammar bf2;
 
 prog
     : funcDef expression
@@ -6,11 +6,8 @@ prog
     ;
 
 funcDef
-    : funcDef funcDef
-    ;
-
-funcDef
     : func nameOperator VARNAME lbrace expression rbrace
+    | funcDef funcDef
     ;
     
 func
@@ -57,7 +54,7 @@ assign
     
 varGetter
     : number
-    | expression getOperator
+    | directionalMove getOperator
     ;
     
 logicalOperator
@@ -75,12 +72,12 @@ comparisonOperator
     ;
     
 directionalMove
-    : left
-    | right
-    | up
-    | down
-    | lowerBoard
-    | upperBoard
+    : LEFT
+    | RIGHT
+    | UP
+    | DOWN
+    | LOWERBOARD
+    | UPPERBOARD
     | directionalMove directionalMove
     ;
 
@@ -116,27 +113,27 @@ rparenthesis
     : ')'
     ;
 
-left
+LEFT
     : '<'
     ;
  
-right
+RIGHT
     : '>'
     ;
 
-up
+UP
     : '^'
     ;
 
-down
+DOWN
     : 'v'
     ;
 
-lowerBoard
+LOWERBOARD
     : '['
     ;
 
-upperBoard
+UPPERBOARD
     : ']'
     ;
 
