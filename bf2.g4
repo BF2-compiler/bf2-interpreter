@@ -55,6 +55,7 @@ assign
 varGetter
     : NUMBER
     | block '.'
+    | '.'
     ;
 
 expression
