@@ -92,7 +92,7 @@ directionalMove
     | '^'
     | 'v'
     | '\\'
-    | '/'
+    | '//'
     ;
 
 VARNAME
