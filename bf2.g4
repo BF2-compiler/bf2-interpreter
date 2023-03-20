@@ -59,18 +59,12 @@ varGetter
     ;
 
 expression
-    : multiplyingExpression (('+' | '-') multiplyingExpression)*
+    : expression ('+' | '-' | '*' | '/' ) expression
     | '(' expression ')'
+    | varGetter
     ;
 
-multiplyingExpression
-   : signExpression (('*' | '/') signExpression)*
-   | '(' multiplyingExpression ')'
-   ;
 
-signExpression
-   : (('+' | '-'))* varGetter
-   ;
     
 logicalOperator
     : '&&'
