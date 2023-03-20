@@ -16,6 +16,7 @@ command
     | funcCall
     | directionalMove
     | expression
+    | assign
     ;
 
 funcDef
@@ -47,7 +48,8 @@ boolStatement
     ;
     
 assign
-    : '=' block
+    : '=' varGetter
+    | '=' NUMBER
     ;
     
 varGetter
