@@ -16,6 +16,7 @@ command
     | funcCall
     | directionalMove
     | expression
+    | assign
     ;
 
 funcDef
