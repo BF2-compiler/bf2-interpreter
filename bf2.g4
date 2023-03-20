@@ -60,10 +60,12 @@ varGetter
 
 expression
     : multiplyingExpression (('+' | '-') multiplyingExpression)*
+    | '(' expression ')'
     ;
 
 multiplyingExpression
    : signExpression (('*' | '/') signExpression)*
+   | '(' multiplyingExpression ')'
    ;
 
 signExpression
