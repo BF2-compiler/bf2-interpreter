@@ -107,3 +107,7 @@ COMMENT
 EOL
     : '\r'? '\n'
     ;
+
+WS
+   : [ \t\r\n] -> skip
+   ;
