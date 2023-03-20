@@ -1,61 +1,71 @@
 grammar bf2;
 
 prog
-    : funcDef expression
+    : (line EOL)+ line? EOF
+    ;
+    
+line
+    : command + comment?
+    | comment
+    | funcDef
+    ;
+
+command
+    : loop
+    | ifStatement
+    | funcCall
+    | directionalMove
     | expression
     ;
 
 funcDef
-    : func nameOperator VARNAME lbrace expression rbrace
-    | funcDef funcDef
+    : 'func' ':' VARNAME EOL? '{' (line? EOL)+ '}'
     ;
     
-func
-    : 'func'
-    ;
-    
-expression
-    : expression expression
-    | loop
-    | ifStatement
-    | boolStatement
-    | assign
-    | directionalMove
+funcCall
+    : VARNAME
     ;
     
 loop
-    : do lbrace expression rbrace number
-    | do lbrace expression rbrace if lparenthesis boolStatement rparenthesis
+    : 'do' block '(' NUMBER ')'
+    | 'do' block 'if' '(' boolStatement ')'
     ;
-    
-do
-    : 'do'
+
+block
+    : '{' command+ '}'
     ;
-    
+
 ifStatement
-    : if lparenthesis boolStatement rparenthesis lbrace expression rbrace
-    ;
-    
-if
-    : 'if'
+    : 'if' '(' boolStatement ')' block
     ;
 
 boolStatement
     : varGetter comparisonOperator varGetter
     | varGetter
     | boolStatement logicalOperator boolStatement
-    | lparenthesis boolStatement rparenthesis
+    | '(' boolStatement ')'
     ;
     
-
 assign
-    : assignOperator expression getOperator
+    : '=' block
     ;
     
 varGetter
-    : number
-    | directionalMove getOperator
+    : NUMBER
+    | command+ '.'
     ;
+
+expression
+    : multiplyingExpression (('+' | '-') multiplyingExpression)*
+    ;
+
+multiplyingExpression
+   : signExpression (('*' | '/') signExpression)*
+   ;
+
+signExpression
+   : (('+' | '-'))* (NUMBER | varGetter)
+   ;
     
 logicalOperator
     : '&&'
@@ -72,69 +82,12 @@ comparisonOperator
     ;
     
 directionalMove
-    : LEFT
-    | RIGHT
-    | UP
-    | DOWN
-    | LOWERBOARD
-    | UPPERBOARD
-    | directionalMove directionalMove
-    ;
-
-nameOperator
-    : ':'
-    ;
-
-getOperator
-    : '.'
-    ;
-
-assignOperator
-    : '='
-    ;
-
-number
-    : NUMBER
-    ;
-
-lbrace
-    : '{'
-    ;
-    
-rbrace
-    : '}'
-    ;
-    
-lparenthesis
-    : '('
-    ;
-    
-rparenthesis
-    : ')'
-    ;
-
-LEFT
     : '<'
-    ;
- 
-RIGHT
-    : '>'
-    ;
-
-UP
-    : '^'
-    ;
-
-DOWN
-    : 'v'
-    ;
-
-LOWERBOARD
-    : '['
-    ;
-
-UPPERBOARD
-    : ']'
+    | '>'
+    | '^'
+    | 'v'
+    | '\'
+    | '/'
     ;
 
 VARNAME
@@ -143,4 +96,8 @@ VARNAME
 
 NUMBER
     : [1-9][0-9]*
+    ;
+    
+EOL
+    : '\r'? '\n'
     ;
