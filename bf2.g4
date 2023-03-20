@@ -5,8 +5,8 @@ prog
     ;
     
 line
-    : command + comment?
-    | comment
+    : command + COMMENT?
+    | COMMENT
     | funcDef
     ;
 
@@ -52,7 +52,7 @@ assign
     
 varGetter
     : NUMBER
-    | command+ '.'
+    | block '.'
     ;
 
 expression
@@ -64,7 +64,7 @@ multiplyingExpression
    ;
 
 signExpression
-   : (('+' | '-'))* (NUMBER | varGetter)
+   : (('+' | '-'))* varGetter
    ;
     
 logicalOperator
@@ -86,7 +86,7 @@ directionalMove
     | '>'
     | '^'
     | 'v'
-    | '\'
+    | '\\'
     | '/'
     ;
 
@@ -96,6 +96,10 @@ VARNAME
 
 NUMBER
     : [1-9][0-9]*
+    ;
+    
+COMMENT
+    : '%' ~ [\r\n]*
     ;
     
 EOL
