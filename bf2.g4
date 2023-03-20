@@ -48,7 +48,8 @@ boolStatement
     ;
     
 assign
-    : '=' block
+    : '=' varGetter
+    | '=' NUMBER
     ;
     
 varGetter
