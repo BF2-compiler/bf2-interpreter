@@ -8,6 +8,7 @@ line
     : command + COMMENT?
     | COMMENT
     | funcDef
+    | command + print
     ;
 
 command
@@ -59,18 +60,15 @@ varGetter
     ;
 
 expression
-    : multiplyingExpression (('+' | '-') multiplyingExpression)*
+    : expression ('+' | '-' | '*' | '/' ) expression
     | '(' expression ')'
+    | varGetter
     ;
 
-multiplyingExpression
-   : signExpression (('*' | '/') signExpression)*
-   | '(' multiplyingExpression ')'
-   ;
+print
+    : '@'
+    ;
 
-signExpression
-   : (('+' | '-'))* varGetter
-   ;
     
 logicalOperator
     : '&&'
@@ -92,7 +90,7 @@ directionalMove
     | '^'
     | 'v'
     | '\\'
-    | '/'
+    | '//'
     ;
 
 VARNAME
