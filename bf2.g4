@@ -8,6 +8,7 @@ line
     : command + COMMENT?
     | COMMENT
     | funcDef
+    | command + print
     ;
 
 command
@@ -64,6 +65,9 @@ expression
     | varGetter
     ;
 
+print
+    : '@'
+    ;
 
     
 logicalOperator
