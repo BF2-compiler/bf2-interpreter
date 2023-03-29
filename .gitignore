@@ -1,7 +1,3 @@
-
-*.interp
-*.tokens
-*.java
 /.idea/.gitignore
 /.idea/compiler.iml
 /.idea/misc.xml
@@ -9,6 +5,4 @@
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
-/bf2Lexer.py
-/bf2Listener.py
-/bf2Parser.py
+
