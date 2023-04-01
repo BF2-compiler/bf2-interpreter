@@ -1,6 +1,5 @@
-package org.bf2;
-
 // Generated from bf2.g4 by ANTLR 4.12.0
+package org.bf2;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -129,25 +128,15 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitExpression(bf2Parser.ExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#multiplyingExpression}.
+	 * Enter a parse tree produced by {@link bf2Parser#print}.
 	 * @param ctx the parse tree
 	 */
-	void enterMultiplyingExpression(bf2Parser.MultiplyingExpressionContext ctx);
+	void enterPrint(bf2Parser.PrintContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#multiplyingExpression}.
+	 * Exit a parse tree produced by {@link bf2Parser#print}.
 	 * @param ctx the parse tree
 	 */
-	void exitMultiplyingExpression(bf2Parser.MultiplyingExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link bf2Parser#signExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterSignExpression(bf2Parser.SignExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link bf2Parser#signExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitSignExpression(bf2Parser.SignExpressionContext ctx);
+	void exitPrint(bf2Parser.PrintContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link bf2Parser#logicalOperator}.
 	 * @param ctx the parse tree

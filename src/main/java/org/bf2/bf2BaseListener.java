@@ -1,7 +1,5 @@
-package org.bf2;
-
 // Generated from bf2.g4 by ANTLR 4.12.0
-
+package org.bf2;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -162,25 +160,13 @@ public class bf2BaseListener implements bf2Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMultiplyingExpression(bf2Parser.MultiplyingExpressionContext ctx) { }
+	@Override public void enterPrint(bf2Parser.PrintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMultiplyingExpression(bf2Parser.MultiplyingExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSignExpression(bf2Parser.SignExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSignExpression(bf2Parser.SignExpressionContext ctx) { }
+	@Override public void exitPrint(bf2Parser.PrintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
