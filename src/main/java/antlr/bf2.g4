@@ -50,7 +50,7 @@ boolStatement
     
 assign
     : '=' varGetter     # AssignVariable
-    | '=' NUMBER        # AssignNumber
+    | '=' NUMBER        # AssignNumber //TO DELETE
     ;
     
 varGetter
