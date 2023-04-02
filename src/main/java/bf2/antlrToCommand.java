@@ -26,6 +26,11 @@ public class antlrToCommand extends bf2BaseVisitor<Command>{
 
     @Override
     public Command visitAssignVariable(bf2Parser.AssignVariableContext ctx) {
+
+        String numText = ctx.getChild(2).getText();
+        mainBoard[pointerX][pointerY] = Integer.parseInt(numText);
+
+        System.out.println(Integer.parseInt(numText));
         return super.visitAssignVariable(ctx);
     }
 

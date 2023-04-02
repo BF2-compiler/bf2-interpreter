@@ -6,7 +6,10 @@ import antlr.bf2Parser;
 public class antlrToVarGetter extends bf2BaseVisitor<VarGetter>{
     @Override
     public VarGetter visitNumberGet(bf2Parser.NumberGetContext ctx) {
-        return super.visitNumberGet(ctx);
+        String numText = ctx.getChild(0).getText();
+        int number = Integer.parseInt(numText);
+
+        return new Number(number);
     }
 
     @Override
