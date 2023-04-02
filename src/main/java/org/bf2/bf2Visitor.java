@@ -1,5 +1,6 @@
 // Generated from bf2.g4 by ANTLR 4.12.0
 package org.bf2;
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -11,11 +12,12 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#prog}.
+	 * Visit a parse tree produced by the {@code Program}
+	 * labeled alternative in {@link bf2Parser#prog}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitProg(bf2Parser.ProgContext ctx);
+	T visitProgram(bf2Parser.ProgramContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link bf2Parser#line}.
 	 * @param ctx the parse tree
@@ -41,11 +43,19 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFuncCall(bf2Parser.FuncCallContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#loop}.
+	 * Visit a parse tree produced by the {@code DoLoop}
+	 * labeled alternative in {@link bf2Parser#loop}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLoop(bf2Parser.LoopContext ctx);
+	T visitDoLoop(bf2Parser.DoLoopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ConditionalLoop}
+	 * labeled alternative in {@link bf2Parser#loop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConditionalLoop(bf2Parser.ConditionalLoopContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link bf2Parser#block}.
 	 * @param ctx the parse tree
@@ -59,29 +69,110 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIfStatement(bf2Parser.IfStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#boolStatement}.
+	 * Visit a parse tree produced by the {@code ParenthesisBool}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBoolStatement(bf2Parser.BoolStatementContext ctx);
+	T visitParenthesisBool(bf2Parser.ParenthesisBoolContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#assign}.
+	 * Visit a parse tree produced by the {@code VariableBool}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAssign(bf2Parser.AssignContext ctx);
+	T visitVariableBool(bf2Parser.VariableBoolContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#varGetter}.
+	 * Visit a parse tree produced by the {@code VariableOperatorVariable}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVarGetter(bf2Parser.VarGetterContext ctx);
+	T visitVariableOperatorVariable(bf2Parser.VariableOperatorVariableContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#expression}.
+	 * Visit a parse tree produced by the {@code BoolOperatorBool}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpression(bf2Parser.ExpressionContext ctx);
+	T visitBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code AssignVariable}
+	 * labeled alternative in {@link bf2Parser#assign}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignVariable(bf2Parser.AssignVariableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code AssignNumber}
+	 * labeled alternative in {@link bf2Parser#assign}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignNumber(bf2Parser.AssignNumberContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code NumberGet}
+	 * labeled alternative in {@link bf2Parser#varGetter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNumberGet(bf2Parser.NumberGetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BlockGet}
+	 * labeled alternative in {@link bf2Parser#varGetter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlockGet(bf2Parser.BlockGetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Get}
+	 * labeled alternative in {@link bf2Parser#varGetter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGet(bf2Parser.GetContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Substraction}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubstraction(bf2Parser.SubstractionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Addition}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddition(bf2Parser.AdditionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Multiplication}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultiplication(bf2Parser.MultiplicationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ParenthesisExpression}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParenthesisExpression(bf2Parser.ParenthesisExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code VariableExpression}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableExpression(bf2Parser.VariableExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Division}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDivision(bf2Parser.DivisionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link bf2Parser#print}.
 	 * @param ctx the parse tree
@@ -89,21 +180,101 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrint(bf2Parser.PrintContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#logicalOperator}.
+	 * Visit a parse tree produced by the {@code LogicalAnd}
+	 * labeled alternative in {@link bf2Parser#logicalOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLogicalOperator(bf2Parser.LogicalOperatorContext ctx);
+	T visitLogicalAnd(bf2Parser.LogicalAndContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#comparisonOperator}.
+	 * Visit a parse tree produced by the {@code LogicalOr}
+	 * labeled alternative in {@link bf2Parser#logicalOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitComparisonOperator(bf2Parser.ComparisonOperatorContext ctx);
+	T visitLogicalOr(bf2Parser.LogicalOrContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#directionalMove}.
+	 * Visit a parse tree produced by the {@code ComparisonLess}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDirectionalMove(bf2Parser.DirectionalMoveContext ctx);
+	T visitComparisonLess(bf2Parser.ComparisonLessContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonGreater}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonGreater(bf2Parser.ComparisonGreaterContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonLessEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonLessEqual(bf2Parser.ComparisonLessEqualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonGreaterEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonGreaterEqual(bf2Parser.ComparisonGreaterEqualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonEqual(bf2Parser.ComparisonEqualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonNotEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonNotEqual(bf2Parser.ComparisonNotEqualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MoveLeft}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMoveLeft(bf2Parser.MoveLeftContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MoveRight}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMoveRight(bf2Parser.MoveRightContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MoveUp}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMoveUp(bf2Parser.MoveUpContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MoveDown}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMoveDown(bf2Parser.MoveDownContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LowerBoard}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLowerBoard(bf2Parser.LowerBoardContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code UpperBoard}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUpperBoard(bf2Parser.UpperBoardContext ctx);
 }

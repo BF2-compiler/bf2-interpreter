@@ -8,15 +8,17 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface bf2Listener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#prog}.
+	 * Enter a parse tree produced by the {@code Program}
+	 * labeled alternative in {@link bf2Parser#prog}.
 	 * @param ctx the parse tree
 	 */
-	void enterProg(bf2Parser.ProgContext ctx);
+	void enterProgram(bf2Parser.ProgramContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#prog}.
+	 * Exit a parse tree produced by the {@code Program}
+	 * labeled alternative in {@link bf2Parser#prog}.
 	 * @param ctx the parse tree
 	 */
-	void exitProg(bf2Parser.ProgContext ctx);
+	void exitProgram(bf2Parser.ProgramContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link bf2Parser#line}.
 	 * @param ctx the parse tree
@@ -58,15 +60,29 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitFuncCall(bf2Parser.FuncCallContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#loop}.
+	 * Enter a parse tree produced by the {@code DoLoop}
+	 * labeled alternative in {@link bf2Parser#loop}.
 	 * @param ctx the parse tree
 	 */
-	void enterLoop(bf2Parser.LoopContext ctx);
+	void enterDoLoop(bf2Parser.DoLoopContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#loop}.
+	 * Exit a parse tree produced by the {@code DoLoop}
+	 * labeled alternative in {@link bf2Parser#loop}.
 	 * @param ctx the parse tree
 	 */
-	void exitLoop(bf2Parser.LoopContext ctx);
+	void exitDoLoop(bf2Parser.DoLoopContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ConditionalLoop}
+	 * labeled alternative in {@link bf2Parser#loop}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionalLoop(bf2Parser.ConditionalLoopContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ConditionalLoop}
+	 * labeled alternative in {@link bf2Parser#loop}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionalLoop(bf2Parser.ConditionalLoopContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link bf2Parser#block}.
 	 * @param ctx the parse tree
@@ -88,45 +104,185 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitIfStatement(bf2Parser.IfStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#boolStatement}.
+	 * Enter a parse tree produced by the {@code ParenthesisBool}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterBoolStatement(bf2Parser.BoolStatementContext ctx);
+	void enterParenthesisBool(bf2Parser.ParenthesisBoolContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#boolStatement}.
+	 * Exit a parse tree produced by the {@code ParenthesisBool}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitBoolStatement(bf2Parser.BoolStatementContext ctx);
+	void exitParenthesisBool(bf2Parser.ParenthesisBoolContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#assign}.
+	 * Enter a parse tree produced by the {@code VariableBool}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssign(bf2Parser.AssignContext ctx);
+	void enterVariableBool(bf2Parser.VariableBoolContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#assign}.
+	 * Exit a parse tree produced by the {@code VariableBool}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssign(bf2Parser.AssignContext ctx);
+	void exitVariableBool(bf2Parser.VariableBoolContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#varGetter}.
+	 * Enter a parse tree produced by the {@code VariableOperatorVariable}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterVarGetter(bf2Parser.VarGetterContext ctx);
+	void enterVariableOperatorVariable(bf2Parser.VariableOperatorVariableContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#varGetter}.
+	 * Exit a parse tree produced by the {@code VariableOperatorVariable}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitVarGetter(bf2Parser.VarGetterContext ctx);
+	void exitVariableOperatorVariable(bf2Parser.VariableOperatorVariableContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#expression}.
+	 * Enter a parse tree produced by the {@code BoolOperatorBool}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpression(bf2Parser.ExpressionContext ctx);
+	void enterBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#expression}.
+	 * Exit a parse tree produced by the {@code BoolOperatorBool}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpression(bf2Parser.ExpressionContext ctx);
+	void exitBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code AssignVariable}
+	 * labeled alternative in {@link bf2Parser#assign}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignVariable(bf2Parser.AssignVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code AssignVariable}
+	 * labeled alternative in {@link bf2Parser#assign}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignVariable(bf2Parser.AssignVariableContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code AssignNumber}
+	 * labeled alternative in {@link bf2Parser#assign}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignNumber(bf2Parser.AssignNumberContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code AssignNumber}
+	 * labeled alternative in {@link bf2Parser#assign}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignNumber(bf2Parser.AssignNumberContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code NumberGet}
+	 * labeled alternative in {@link bf2Parser#varGetter}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumberGet(bf2Parser.NumberGetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code NumberGet}
+	 * labeled alternative in {@link bf2Parser#varGetter}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumberGet(bf2Parser.NumberGetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BlockGet}
+	 * labeled alternative in {@link bf2Parser#varGetter}.
+	 * @param ctx the parse tree
+	 */
+	void enterBlockGet(bf2Parser.BlockGetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BlockGet}
+	 * labeled alternative in {@link bf2Parser#varGetter}.
+	 * @param ctx the parse tree
+	 */
+	void exitBlockGet(bf2Parser.BlockGetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Get}
+	 * labeled alternative in {@link bf2Parser#varGetter}.
+	 * @param ctx the parse tree
+	 */
+	void enterGet(bf2Parser.GetContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Get}
+	 * labeled alternative in {@link bf2Parser#varGetter}.
+	 * @param ctx the parse tree
+	 */
+	void exitGet(bf2Parser.GetContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Substraction}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterSubstraction(bf2Parser.SubstractionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Substraction}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitSubstraction(bf2Parser.SubstractionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Addition}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddition(bf2Parser.AdditionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Addition}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddition(bf2Parser.AdditionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Multiplication}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultiplication(bf2Parser.MultiplicationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Multiplication}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultiplication(bf2Parser.MultiplicationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ParenthesisExpression}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterParenthesisExpression(bf2Parser.ParenthesisExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ParenthesisExpression}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitParenthesisExpression(bf2Parser.ParenthesisExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code VariableExpression}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableExpression(bf2Parser.VariableExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code VariableExpression}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableExpression(bf2Parser.VariableExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Division}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterDivision(bf2Parser.DivisionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Division}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitDivision(bf2Parser.DivisionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link bf2Parser#print}.
 	 * @param ctx the parse tree
@@ -138,33 +294,171 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitPrint(bf2Parser.PrintContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#logicalOperator}.
+	 * Enter a parse tree produced by the {@code LogicalAnd}
+	 * labeled alternative in {@link bf2Parser#logicalOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterLogicalOperator(bf2Parser.LogicalOperatorContext ctx);
+	void enterLogicalAnd(bf2Parser.LogicalAndContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#logicalOperator}.
+	 * Exit a parse tree produced by the {@code LogicalAnd}
+	 * labeled alternative in {@link bf2Parser#logicalOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitLogicalOperator(bf2Parser.LogicalOperatorContext ctx);
+	void exitLogicalAnd(bf2Parser.LogicalAndContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#comparisonOperator}.
+	 * Enter a parse tree produced by the {@code LogicalOr}
+	 * labeled alternative in {@link bf2Parser#logicalOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterComparisonOperator(bf2Parser.ComparisonOperatorContext ctx);
+	void enterLogicalOr(bf2Parser.LogicalOrContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#comparisonOperator}.
+	 * Exit a parse tree produced by the {@code LogicalOr}
+	 * labeled alternative in {@link bf2Parser#logicalOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitComparisonOperator(bf2Parser.ComparisonOperatorContext ctx);
+	void exitLogicalOr(bf2Parser.LogicalOrContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#directionalMove}.
+	 * Enter a parse tree produced by the {@code ComparisonLess}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterDirectionalMove(bf2Parser.DirectionalMoveContext ctx);
+	void enterComparisonLess(bf2Parser.ComparisonLessContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#directionalMove}.
+	 * Exit a parse tree produced by the {@code ComparisonLess}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitDirectionalMove(bf2Parser.DirectionalMoveContext ctx);
+	void exitComparisonLess(bf2Parser.ComparisonLessContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisonGreater}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisonGreater(bf2Parser.ComparisonGreaterContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisonGreater}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisonGreater(bf2Parser.ComparisonGreaterContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisonLessEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisonLessEqual(bf2Parser.ComparisonLessEqualContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisonLessEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisonLessEqual(bf2Parser.ComparisonLessEqualContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisonGreaterEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisonGreaterEqual(bf2Parser.ComparisonGreaterEqualContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisonGreaterEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisonGreaterEqual(bf2Parser.ComparisonGreaterEqualContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisonEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisonEqual(bf2Parser.ComparisonEqualContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisonEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisonEqual(bf2Parser.ComparisonEqualContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisonNotEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisonNotEqual(bf2Parser.ComparisonNotEqualContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisonNotEqual}
+	 * labeled alternative in {@link bf2Parser#comparisonOperator}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisonNotEqual(bf2Parser.ComparisonNotEqualContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MoveLeft}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void enterMoveLeft(bf2Parser.MoveLeftContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MoveLeft}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void exitMoveLeft(bf2Parser.MoveLeftContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MoveRight}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void enterMoveRight(bf2Parser.MoveRightContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MoveRight}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void exitMoveRight(bf2Parser.MoveRightContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MoveUp}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void enterMoveUp(bf2Parser.MoveUpContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MoveUp}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void exitMoveUp(bf2Parser.MoveUpContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MoveDown}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void enterMoveDown(bf2Parser.MoveDownContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MoveDown}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void exitMoveDown(bf2Parser.MoveDownContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LowerBoard}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void enterLowerBoard(bf2Parser.LowerBoardContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LowerBoard}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void exitLowerBoard(bf2Parser.LowerBoardContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code UpperBoard}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void enterUpperBoard(bf2Parser.UpperBoardContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code UpperBoard}
+	 * labeled alternative in {@link bf2Parser#directionalMove}.
+	 * @param ctx the parse tree
+	 */
+	void exitUpperBoard(bf2Parser.UpperBoardContext ctx);
 }
