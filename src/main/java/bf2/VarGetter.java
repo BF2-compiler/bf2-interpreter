@@ -1,5 +1,5 @@
 package bf2;
 
-public class VarGetter{
+public class VarGetter extends Command{
 
 }

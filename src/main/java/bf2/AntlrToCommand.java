@@ -5,9 +5,6 @@ import antlr.bf2Parser;
 
 public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
-    private final int SIZE = 8;
-    private int[][] mainBoard = new int[SIZE][SIZE];
-    public int pointerX, pointerY;
 
     @Override
     public Command visitCommand(bf2Parser.CommandContext ctx) {
@@ -26,12 +23,7 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
     @Override
     public Command visitAssignVariable(bf2Parser.AssignVariableContext ctx) {
-
-        String numText = ctx.getChild(1).getText();
-        mainBoard[pointerX][pointerY] = Integer.parseInt(numText);
-
-        System.out.println(Integer.parseInt(numText));
-        return super.visitAssignVariable(ctx);
+        return visit(ctx.getChild(1));
     }
 
     @Override
@@ -41,28 +33,22 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
     @Override
     public Command visitMoveLeft(bf2Parser.MoveLeftContext ctx) {
-        pointerX--;
-
-        return super.visitMoveLeft(ctx);
+        return new DirectionalMove(-1, 0);
     }
 
     @Override
     public Command visitMoveRight(bf2Parser.MoveRightContext ctx) {
-        pointerX++;
-
-        return super.visitMoveRight(ctx);
+        return new DirectionalMove(1, 0);
     }
 
     @Override
     public Command visitMoveUp(bf2Parser.MoveUpContext ctx) {
-        pointerY--;
-        return super.visitMoveUp(ctx);
+        return new DirectionalMove(0, -1);
     }
 
     @Override
     public Command visitMoveDown(bf2Parser.MoveDownContext ctx) {
-        pointerY++;
-        return super.visitMoveDown(ctx);
+        return new DirectionalMove(0, 1);
     }
 
     @Override
