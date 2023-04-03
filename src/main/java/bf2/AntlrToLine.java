@@ -11,6 +11,7 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
 
     @Override
     public Line visitComment(bf2Parser.CommentContext ctx) {
+
         return super.visitComment(ctx);
     }
 
