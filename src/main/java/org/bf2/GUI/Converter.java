@@ -21,6 +21,19 @@ public class Converter {
         return s.toString();
     }
 
+    public String convert_to_int(int[][] data) {
+        StringBuilder s = new StringBuilder();
+
+        for (int row = 0; row < SIZE; row++) {
+            for (int col = 0; col < SIZE; col++) {
+                s.append(" " + data[row][col]);
+            }
+            s.append('\n');
+        }
+        
+        return s.toString();
+    }
+
     public Color[][] convert_to_color(int[][] data) {
 
         Color[][] color_data = new Color[SIZE][SIZE];
