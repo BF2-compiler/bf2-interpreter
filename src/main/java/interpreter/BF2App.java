@@ -9,7 +9,9 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 
+import java.io.Console;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class BF2App {
     public static void main(String[] args) {
@@ -29,6 +31,11 @@ public class BF2App {
             // Create a visitor for converting the parse tree into lines expressions objcets
             AntlrToProgram progVisitor = new AntlrToProgram();
             Program prog = progVisitor.visit(antlrAST);
+
+            for (int[] ints : progVisitor.mainBoard) {
+                System.out.println(Arrays.toString(ints));
+            }
+
 
             // HERE WE NEED TO USE TABLE FROM PROG...
 
