@@ -29,7 +29,7 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
                 /* last line of the start symbol prog is EOF */
             }
             else {
-                prog.addLine(lineVisitor.visitCommandPlusComment(ctx.getChild(i)));
+                prog.addLine(lineVisitor.visit(ctx.getChild(i)));
             }
         }
 

@@ -5,20 +5,29 @@ import antlr.bf2Parser;
 
 public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
-
     @Override
-    public Command visitCommand(bf2Parser.CommandContext ctx) {
-        return super.visitCommand(ctx);
+    public Command visitCommandLoop(bf2Parser.CommandLoopContext ctx) {
+        return super.visitCommandLoop(ctx);
     }
 
     @Override
-    public Command visitDoLoop(bf2Parser.DoLoopContext ctx) {
-        return super.visitDoLoop(ctx);
+    public Command visitCommandIfStatement(bf2Parser.CommandIfStatementContext ctx) {
+        return super.visitCommandIfStatement(ctx);
     }
 
     @Override
-    public Command visitConditionalLoop(bf2Parser.ConditionalLoopContext ctx) {
-        return super.visitConditionalLoop(ctx);
+    public Command visitCommandFuncCall(bf2Parser.CommandFuncCallContext ctx) {
+        return super.visitCommandFuncCall(ctx);
+    }
+
+    @Override
+    public Command visitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx) {
+        return super.visitCommandDirectionalMove(ctx);
+    }
+
+    @Override
+    public Command visitCommandExpression(bf2Parser.CommandExpressionContext ctx) {
+        return super.visitCommandExpression(ctx);
     }
 
     @Override
@@ -26,38 +35,6 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
         return visit(ctx.getChild(1));
     }
 
-    @Override
-    public Command visitAssignNumber(bf2Parser.AssignNumberContext ctx) {
-        return super.visitAssignNumber(ctx);
-    }
 
-    @Override
-    public Command visitMoveLeft(bf2Parser.MoveLeftContext ctx) {
-        return new DirectionalMove(-1, 0);
-    }
 
-    @Override
-    public Command visitMoveRight(bf2Parser.MoveRightContext ctx) {
-        return new DirectionalMove(1, 0);
-    }
-
-    @Override
-    public Command visitMoveUp(bf2Parser.MoveUpContext ctx) {
-        return new DirectionalMove(0, -1);
-    }
-
-    @Override
-    public Command visitMoveDown(bf2Parser.MoveDownContext ctx) {
-        return new DirectionalMove(0, 1);
-    }
-
-    @Override
-    public Command visitLowerBoard(bf2Parser.LowerBoardContext ctx) {
-        return super.visitLowerBoard(ctx);
-    }
-
-    @Override
-    public Command visitUpperBoard(bf2Parser.UpperBoardContext ctx) {
-        return super.visitUpperBoard(ctx);
-    }
 }

@@ -1,6 +1,8 @@
 // Generated from bf2.g4 by ANTLR 4.12.0
+
 package antlr;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
+
 
 /**
  * This interface defines a complete listener for a parse tree produced by
@@ -20,17 +22,17 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitProgram(bf2Parser.ProgramContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code CommandPlusComment}
+	 * Enter a parse tree produced by the {@code CommandComment}
 	 * labeled alternative in {@link bf2Parser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterCommandPlusComment(bf2Parser.CommandPlusCommentContext ctx);
+	void enterCommandComment(bf2Parser.CommandCommentContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code CommandPlusComment}
+	 * Exit a parse tree produced by the {@code CommandComment}
 	 * labeled alternative in {@link bf2Parser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitCommandPlusComment(bf2Parser.CommandPlusCommentContext ctx);
+	void exitCommandComment(bf2Parser.CommandCommentContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Comment}
 	 * labeled alternative in {@link bf2Parser#line}.
@@ -56,27 +58,89 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitDefinitionOfFunction(bf2Parser.DefinitionOfFunctionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code CommandAndPrint}
+	 * Enter a parse tree produced by the {@code CommandPrint}
 	 * labeled alternative in {@link bf2Parser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterCommandAndPrint(bf2Parser.CommandAndPrintContext ctx);
+	void enterCommandPrint(bf2Parser.CommandPrintContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code CommandAndPrint}
+	 * Exit a parse tree produced by the {@code CommandPrint}
 	 * labeled alternative in {@link bf2Parser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitCommandAndPrint(bf2Parser.CommandAndPrintContext ctx);
+	void exitCommandPrint(bf2Parser.CommandPrintContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#command}.
+	 * Enter a parse tree produced by the {@code CommandLoop}
+	 * labeled alternative in {@link bf2Parser#command}.
 	 * @param ctx the parse tree
 	 */
-	void enterCommand(bf2Parser.CommandContext ctx);
+	void enterCommandLoop(bf2Parser.CommandLoopContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#command}.
+	 * Exit a parse tree produced by the {@code CommandLoop}
+	 * labeled alternative in {@link bf2Parser#command}.
 	 * @param ctx the parse tree
 	 */
-	void exitCommand(bf2Parser.CommandContext ctx);
+	void exitCommandLoop(bf2Parser.CommandLoopContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code CommandIfStatement}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 */
+	void enterCommandIfStatement(bf2Parser.CommandIfStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code CommandIfStatement}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 */
+	void exitCommandIfStatement(bf2Parser.CommandIfStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code CommandFuncCall}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 */
+	void enterCommandFuncCall(bf2Parser.CommandFuncCallContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code CommandFuncCall}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 */
+	void exitCommandFuncCall(bf2Parser.CommandFuncCallContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code CommandDirectionalMove}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 */
+	void enterCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code CommandDirectionalMove}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 */
+	void exitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code CommandExpression}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 */
+	void enterCommandExpression(bf2Parser.CommandExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code CommandExpression}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 */
+	void exitCommandExpression(bf2Parser.CommandExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code CommandAssign}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 */
+	void enterCommandAssign(bf2Parser.CommandAssignContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code CommandAssign}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 */
+	void exitCommandAssign(bf2Parser.CommandAssignContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link bf2Parser#funcDef}.
 	 * @param ctx the parse tree
@@ -201,18 +265,6 @@ public interface bf2Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAssignVariable(bf2Parser.AssignVariableContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code AssignNumber}
-	 * labeled alternative in {@link bf2Parser#assign}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssignNumber(bf2Parser.AssignNumberContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AssignNumber}
-	 * labeled alternative in {@link bf2Parser#assign}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssignNumber(bf2Parser.AssignNumberContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code NumberGet}
 	 * labeled alternative in {@link bf2Parser#varGetter}.

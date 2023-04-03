@@ -5,7 +5,7 @@ import antlr.bf2Parser;
 
 public class AntlrToLine extends bf2BaseVisitor<Line>{
     @Override
-    public Line visitCommandPlusComment(bf2Parser.CommandPlusCommentContext ctx) {
+    public Line visitCommandComment(bf2Parser.CommandCommentContext ctx) {
 
         return visit(ctx.getChild(0));
     }
@@ -22,8 +22,8 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
     }
 
     @Override
-    public Line visitCommandAndPrint(bf2Parser.CommandAndPrintContext ctx) {
-        return super.visitCommandAndPrint(ctx);
+    public Line visitCommandPrint(bf2Parser.CommandPrintContext ctx) {
+        return super.visitCommandPrint(ctx);
     }
 
 

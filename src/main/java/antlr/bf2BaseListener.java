@@ -29,13 +29,13 @@ public class bf2BaseListener implements bf2Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCommandPlusComment(bf2Parser.CommandPlusCommentContext ctx) { }
+	@Override public void enterCommandComment(bf2Parser.CommandCommentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCommandPlusComment(bf2Parser.CommandPlusCommentContext ctx) { }
+	@Override public void exitCommandComment(bf2Parser.CommandCommentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -65,25 +65,85 @@ public class bf2BaseListener implements bf2Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCommandAndPrint(bf2Parser.CommandAndPrintContext ctx) { }
+	@Override public void enterCommandPrint(bf2Parser.CommandPrintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCommandAndPrint(bf2Parser.CommandAndPrintContext ctx) { }
+	@Override public void exitCommandPrint(bf2Parser.CommandPrintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCommand(bf2Parser.CommandContext ctx) { }
+	@Override public void enterCommandLoop(bf2Parser.CommandLoopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCommand(bf2Parser.CommandContext ctx) { }
+	@Override public void exitCommandLoop(bf2Parser.CommandLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCommandIfStatement(bf2Parser.CommandIfStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCommandIfStatement(bf2Parser.CommandIfStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCommandFuncCall(bf2Parser.CommandFuncCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCommandFuncCall(bf2Parser.CommandFuncCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCommandExpression(bf2Parser.CommandExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCommandExpression(bf2Parser.CommandExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCommandAssign(bf2Parser.CommandAssignContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCommandAssign(bf2Parser.CommandAssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -216,18 +276,6 @@ public class bf2BaseListener implements bf2Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAssignVariable(bf2Parser.AssignVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAssignNumber(bf2Parser.AssignNumberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAssignNumber(bf2Parser.AssignNumberContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

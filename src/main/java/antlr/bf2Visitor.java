@@ -1,5 +1,7 @@
 // Generated from bf2.g4 by ANTLR 4.12.0
 package antlr;
+
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -18,12 +20,12 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProgram(bf2Parser.ProgramContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code CommandPlusComment}
+	 * Visit a parse tree produced by the {@code CommandComment}
 	 * labeled alternative in {@link bf2Parser#line}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCommandPlusComment(bf2Parser.CommandPlusCommentContext ctx);
+	T visitCommandComment(bf2Parser.CommandCommentContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code Comment}
 	 * labeled alternative in {@link bf2Parser#line}.
@@ -39,18 +41,54 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDefinitionOfFunction(bf2Parser.DefinitionOfFunctionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code CommandAndPrint}
+	 * Visit a parse tree produced by the {@code CommandPrint}
 	 * labeled alternative in {@link bf2Parser#line}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCommandAndPrint(bf2Parser.CommandAndPrintContext ctx);
+	T visitCommandPrint(bf2Parser.CommandPrintContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#command}.
+	 * Visit a parse tree produced by the {@code CommandLoop}
+	 * labeled alternative in {@link bf2Parser#command}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCommand(bf2Parser.CommandContext ctx);
+	T visitCommandLoop(bf2Parser.CommandLoopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code CommandIfStatement}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCommandIfStatement(bf2Parser.CommandIfStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code CommandFuncCall}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCommandFuncCall(bf2Parser.CommandFuncCallContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code CommandDirectionalMove}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code CommandExpression}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCommandExpression(bf2Parser.CommandExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code CommandAssign}
+	 * labeled alternative in {@link bf2Parser#command}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCommandAssign(bf2Parser.CommandAssignContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link bf2Parser#funcDef}.
 	 * @param ctx the parse tree
@@ -124,13 +162,6 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAssignVariable(bf2Parser.AssignVariableContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code AssignNumber}
-	 * labeled alternative in {@link bf2Parser#assign}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAssignNumber(bf2Parser.AssignNumberContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code NumberGet}
 	 * labeled alternative in {@link bf2Parser#varGetter}.

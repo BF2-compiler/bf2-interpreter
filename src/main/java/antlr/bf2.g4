@@ -5,19 +5,19 @@ prog
     ;
     
 line
-    : command + COMMENT?        # CommandPlusComment
+    : command + COMMENT?        # CommandComment
     | COMMENT                   # Comment
     | funcDef                   # DefinitionOfFunction
-    | command + print           # CommandAndPrint
+    | command + print           # CommandPrint
     ;
 
 command
-    : loop
-    | ifStatement
-    | funcCall
-    | directionalMove
-    | expression
-    | assign
+    : loop                      # CommandLoop
+    | ifStatement               # CommandIfStatement
+    | funcCall                  # CommandFuncCall
+    | directionalMove           # CommandDirectionalMove
+    | expression                # CommandExpression
+    | assign                    # CommandAssign
     ;
 
 funcDef
@@ -50,7 +50,6 @@ boolStatement
     
 assign
     : '=' varGetter     # AssignVariable
-    | '=' NUMBER        # AssignNumber //TO DELETE
     ;
     
 varGetter
