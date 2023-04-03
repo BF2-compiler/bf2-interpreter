@@ -29,9 +29,16 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
                 /* last line of the start symbol prog is EOF */
             }
             else {
-                prog.addLine(lineVisitor.visit(ctx.getChild(i)));
+                Line l = lineVisitor.visit(ctx.getChild(i));
+                prog.addLine(l);
+                if (l instanceof Number){
+                    Number tempNum = (Number) l;
+                    mainBoard[pointerX][pointerY] = tempNum.value_;
+                }
             }
         }
+
+
 
         return super.visitProgram(ctx);
     }
