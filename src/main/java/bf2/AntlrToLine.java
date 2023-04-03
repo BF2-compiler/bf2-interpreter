@@ -6,7 +6,8 @@ import antlr.bf2Parser;
 public class AntlrToLine extends bf2BaseVisitor<Line>{
     @Override
     public Line visitCommandComment(bf2Parser.CommandCommentContext ctx) {
-
+        System.out.println("visitCommandComment");
+        System.out.println(ctx.getChild(0).getClass());
         return visit(ctx.getChild(0));
     }
 

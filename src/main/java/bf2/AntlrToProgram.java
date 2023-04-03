@@ -7,7 +7,7 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
 
     private final int SIZE = 8;
     public int[][] mainBoard = new int[SIZE][SIZE];
-    public int pointerX, pointerY;
+    public int pointerX = 0, pointerY = 0;
 
     /*
         String numText = ctx.getChild(1).getText();
@@ -35,6 +35,7 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
                     Number tempNum = (Number) l;
                     mainBoard[pointerX][pointerY] = tempNum.value_;
                 }
+                System.out.println(l);
             }
         }
 
