@@ -3,7 +3,7 @@ package bf2;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
-public class antlrToCommand extends bf2BaseVisitor<Command>{
+public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
     private final int SIZE = 8;
     private int[][] mainBoard = new int[SIZE][SIZE];

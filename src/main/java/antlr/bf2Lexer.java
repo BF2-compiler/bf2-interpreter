@@ -1,6 +1,5 @@
 // Generated from bf2.g4 by ANTLR 4.12.0
 package antlr;
-
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

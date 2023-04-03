@@ -1,11 +1,13 @@
 // Generated from bf2.g4 by ANTLR 4.12.0
 package antlr;
-
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class bf2Parser extends Parser {
@@ -201,6 +203,82 @@ public class bf2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class LineContext extends ParserRuleContext {
+		public LineContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_line; }
+	 
+		public LineContext() { }
+		public void copyFrom(LineContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class CommandAndPrintContext extends LineContext {
+		public PrintContext print() {
+			return getRuleContext(PrintContext.class,0);
+		}
+		public List<CommandContext> command() {
+			return getRuleContexts(CommandContext.class);
+		}
+		public CommandContext command(int i) {
+			return getRuleContext(CommandContext.class,i);
+		}
+		public CommandAndPrintContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).enterCommandAndPrint(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).exitCommandAndPrint(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitCommandAndPrint(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class CommentContext extends LineContext {
+		public TerminalNode COMMENT() { return getToken(bf2Parser.COMMENT, 0); }
+		public CommentContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).enterComment(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).exitComment(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitComment(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class DefinitionOfFunctionContext extends LineContext {
+		public FuncDefContext funcDef() {
+			return getRuleContext(FuncDefContext.class,0);
+		}
+		public DefinitionOfFunctionContext(LineContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).enterDefinitionOfFunction(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).exitDefinitionOfFunction(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitDefinitionOfFunction(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class CommandPlusCommentContext extends LineContext {
 		public List<CommandContext> command() {
 			return getRuleContexts(CommandContext.class);
 		}
@@ -208,27 +286,18 @@ public class bf2Parser extends Parser {
 			return getRuleContext(CommandContext.class,i);
 		}
 		public TerminalNode COMMENT() { return getToken(bf2Parser.COMMENT, 0); }
-		public FuncDefContext funcDef() {
-			return getRuleContext(FuncDefContext.class,0);
-		}
-		public PrintContext print() {
-			return getRuleContext(PrintContext.class,0);
-		}
-		public LineContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_line; }
+		public CommandPlusCommentContext(LineContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).enterLine(this);
+			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).enterCommandPlusComment(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).exitLine(this);
+			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).exitCommandPlusComment(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitLine(this);
+			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitCommandPlusComment(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -242,6 +311,7 @@ public class bf2Parser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 			case 1:
+				_localctx = new CommandPlusCommentContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(45); 
@@ -271,6 +341,7 @@ public class bf2Parser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new CommentContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(52);
@@ -278,6 +349,7 @@ public class bf2Parser extends Parser {
 				}
 				break;
 			case 3:
+				_localctx = new DefinitionOfFunctionContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(53);
@@ -285,6 +357,7 @@ public class bf2Parser extends Parser {
 				}
 				break;
 			case 4:
+				_localctx = new CommandAndPrintContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(55); 

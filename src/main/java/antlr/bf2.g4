@@ -5,10 +5,10 @@ prog
     ;
     
 line
-    : command + COMMENT?
-    | COMMENT
-    | funcDef
-    | command + print
+    : command + COMMENT?        # CommandPlusComment
+    | COMMENT                   # Comment
+    | funcDef                   # DefinitionOfFunction
+    | command + print           # CommandAndPrint
     ;
 
 command

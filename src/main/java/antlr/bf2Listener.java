@@ -20,15 +20,53 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitProgram(bf2Parser.ProgramContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link bf2Parser#line}.
+	 * Enter a parse tree produced by the {@code CommandPlusComment}
+	 * labeled alternative in {@link bf2Parser#line}.
 	 * @param ctx the parse tree
 	 */
-	void enterLine(bf2Parser.LineContext ctx);
+	void enterCommandPlusComment(bf2Parser.CommandPlusCommentContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link bf2Parser#line}.
+	 * Exit a parse tree produced by the {@code CommandPlusComment}
+	 * labeled alternative in {@link bf2Parser#line}.
 	 * @param ctx the parse tree
 	 */
-	void exitLine(bf2Parser.LineContext ctx);
+	void exitCommandPlusComment(bf2Parser.CommandPlusCommentContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Comment}
+	 * labeled alternative in {@link bf2Parser#line}.
+	 * @param ctx the parse tree
+	 */
+	void enterComment(bf2Parser.CommentContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Comment}
+	 * labeled alternative in {@link bf2Parser#line}.
+	 * @param ctx the parse tree
+	 */
+	void exitComment(bf2Parser.CommentContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code DefinitionOfFunction}
+	 * labeled alternative in {@link bf2Parser#line}.
+	 * @param ctx the parse tree
+	 */
+	void enterDefinitionOfFunction(bf2Parser.DefinitionOfFunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code DefinitionOfFunction}
+	 * labeled alternative in {@link bf2Parser#line}.
+	 * @param ctx the parse tree
+	 */
+	void exitDefinitionOfFunction(bf2Parser.DefinitionOfFunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code CommandAndPrint}
+	 * labeled alternative in {@link bf2Parser#line}.
+	 * @param ctx the parse tree
+	 */
+	void enterCommandAndPrint(bf2Parser.CommandAndPrintContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code CommandAndPrint}
+	 * labeled alternative in {@link bf2Parser#line}.
+	 * @param ctx the parse tree
+	 */
+	void exitCommandAndPrint(bf2Parser.CommandAndPrintContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link bf2Parser#command}.
 	 * @param ctx the parse tree

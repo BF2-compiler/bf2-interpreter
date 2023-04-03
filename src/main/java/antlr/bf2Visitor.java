@@ -1,6 +1,5 @@
 // Generated from bf2.g4 by ANTLR 4.12.0
 package antlr;
-
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -19,11 +18,33 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProgram(bf2Parser.ProgramContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#line}.
+	 * Visit a parse tree produced by the {@code CommandPlusComment}
+	 * labeled alternative in {@link bf2Parser#line}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLine(bf2Parser.LineContext ctx);
+	T visitCommandPlusComment(bf2Parser.CommandPlusCommentContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Comment}
+	 * labeled alternative in {@link bf2Parser#line}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComment(bf2Parser.CommentContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code DefinitionOfFunction}
+	 * labeled alternative in {@link bf2Parser#line}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefinitionOfFunction(bf2Parser.DefinitionOfFunctionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code CommandAndPrint}
+	 * labeled alternative in {@link bf2Parser#line}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCommandAndPrint(bf2Parser.CommandAndPrintContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link bf2Parser#command}.
 	 * @param ctx the parse tree

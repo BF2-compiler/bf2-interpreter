@@ -3,7 +3,7 @@ package bf2;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
-public class antlrToVarGetter extends bf2BaseVisitor<VarGetter>{
+public class AntlrToVarGetter extends bf2BaseVisitor<VarGetter>{
     @Override
     public VarGetter visitNumberGet(bf2Parser.NumberGetContext ctx) {
         String numText = ctx.getChild(0).getText();
