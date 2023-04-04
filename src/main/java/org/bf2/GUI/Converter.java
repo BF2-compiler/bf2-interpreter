@@ -1,7 +1,6 @@
 package org.bf2.GUI;
 
 import java.awt.Color;
-import java.util.Arrays;
 
 public class Converter {
 
@@ -22,17 +21,17 @@ public class Converter {
         return s.toString();
     }
 
-    public String convert_to_int(int[][] data) {
-        StringBuilder s = new StringBuilder();
+    public String[][] convert_to_int(int[][] data) {
+
+        String[][] new_data = new String[8][8];
 
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
-                s.append(" " + data[row][col]);
+                new_data[row][col] = Integer.toString(data[row][col]);
             }
-            s.append('\n');
         }
-        
-        return s.toString();
+
+        return new_data;
     }
 
     public Color[][] convert_to_color(int[][] data) {

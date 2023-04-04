@@ -9,15 +9,15 @@ import java.awt.Rectangle;
 import javax.swing.JPanel;
 
 
-public class BF2Panel extends JPanel {
+public class BF2ColorPanel extends JPanel {
 
     Color color;
 
-    public BF2Panel(Color c) {
+    public BF2ColorPanel(Color c) {
         this.color = c;
     }
 
-    public BF2Panel(){}
+    public BF2ColorPanel(){}
 
     @Override
     public void paintComponent(Graphics g) {

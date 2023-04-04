@@ -3,7 +3,6 @@ package org.bf2.GUI;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
-import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 
@@ -39,7 +38,7 @@ public class BF2Frame extends JFrame {
         // Add shapes to the frame
         for(int i = 0; i < converter.SIZE; i++) {
             for(int j = 0; j < converter.SIZE; j++) {
-                BF2Panel panel = new BF2Panel(colors[i][j]);
+                BF2ColorPanel panel = new BF2ColorPanel(colors[i][j]);
                 this.add(panel);
             }
         }
@@ -48,14 +47,16 @@ public class BF2Frame extends JFrame {
     public void print_as_int(int[][] data) {
         Converter converter = new Converter();
 
-        var ints = converter.convert_to_int(data);
+        String[][] ints = converter.convert_to_int(data);
+        this.setLayout(new GridLayout(converter.SIZE, converter.SIZE, 0, 0));
 
-        this.add(new JTextArea(ints){
-            @Override
-            public void setEditable(boolean arg0) {
-                super.setEditable(false);
+
+        for(int i = 0; i < converter.SIZE; i++) {
+            for(int j = 0; j < converter.SIZE; j++) {    
+                BF2TextPanel panel = new BF2TextPanel(ints[i][j]);
+                this.add(panel);
             }
-        });
+        }
     }
 
     public void print_as_string(int[][] data) {
