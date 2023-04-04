@@ -2,6 +2,7 @@ package bf2;
 
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
+import GUI.BF2Frame;
 
 import java.util.Objects;
 
@@ -42,10 +43,21 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
                             pointerY += ((DirectionalMove) com).changeY_;
                         } else if (com instanceof Function f){
                             if (Objects.equals(f.name_, "READ_AS_STRING")){
-                                System.out.println("Read as string called");
+                                BF2Frame frame = new BF2Frame();
+                                frame.print_as_string(mainBoard);
+                                frame.pack();
+                                frame.setVisible(true);
                             }
                             else if (Objects.equals(f.name_, "READ_AS_INT")){
-                                System.out.println("Read as int called");
+                                BF2Frame frame = new BF2Frame();
+                                frame.print_as_int(mainBoard);
+                                frame.pack();
+                                frame.setVisible(true);
+                            } else if (Objects.equals(f.name_, "READ_AS_COLORS")){
+                                BF2Frame frame = new BF2Frame();
+                                frame.print_as_colors(mainBoard);
+                                frame.pack();
+                                frame.setVisible(true);
                             }
                         }
                     }

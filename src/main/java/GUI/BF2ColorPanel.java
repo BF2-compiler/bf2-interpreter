@@ -1,4 +1,4 @@
-package org.bf2.GUI;
+package GUI;
 
 import java.awt.Color;
 import java.awt.Dimension;
