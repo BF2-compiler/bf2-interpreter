@@ -3,6 +3,8 @@ package bf2;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
+import java.util.Objects;
+
 public class AntlrToProgram extends bf2BaseVisitor<Program>{
 
     private final int SIZE = 8;
@@ -38,6 +40,13 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
                         } else if (com instanceof DirectionalMove) {
                             pointerX += ((DirectionalMove) com).changeX_;
                             pointerY += ((DirectionalMove) com).changeY_;
+                        } else if (com instanceof Function f){
+                            if (Objects.equals(f.name_, "READ_AS_STRING")){
+                                System.out.println("Read as string called");
+                            }
+                            else if (Objects.equals(f.name_, "READ_AS_INT")){
+                                System.out.println("Read as int called");
+                            }
                         }
                     }
                 }

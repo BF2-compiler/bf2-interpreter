@@ -49,7 +49,7 @@ boolStatement
     ;
     
 assign
-    : '=' varGetter     # AssignVariable
+    : '=' varGetter
     ;
     
 varGetter
@@ -96,7 +96,7 @@ directionalMove
     ;
 
 VARNAME
-    : [a-zA-Z]+
+    : [A-Z_]+
     ;
 
 NUMBER
