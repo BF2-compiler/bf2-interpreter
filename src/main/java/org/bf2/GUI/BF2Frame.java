@@ -1,5 +1,6 @@
 package org.bf2.GUI;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -8,7 +9,11 @@ import javax.swing.JTextArea;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.TextField;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
 public class BF2Frame extends JFrame {
@@ -19,7 +24,7 @@ public class BF2Frame extends JFrame {
         
         // Default setup for the frame
         this.setTitle("BF^2 COMPILER");
-        // this.setIconImage(getIconImage());
+        // TODO: img icon
 
         this.setMinimumSize(dimensions);
         this.setResizable(false);
@@ -34,7 +39,7 @@ public class BF2Frame extends JFrame {
 
         // Create new instance of Converter object
         Converter converter = new Converter();
-        JLabel break_line = new JLabel("<br>");
+        JLabel break_line = new JLabel("<b>");
 
         // Convert data to colors using converter object
         var colors = converter.convert_to_color(data);
