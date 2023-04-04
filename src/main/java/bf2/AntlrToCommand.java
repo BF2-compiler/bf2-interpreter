@@ -25,26 +25,25 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
     @Override
     public Command visitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx) {
-        System.out.println("visitCommandDirectionalMove");
-        return super.visitCommandDirectionalMove(ctx);
+        AntlrToDirectionalMove directionalMove = new AntlrToDirectionalMove();
+        return directionalMove.visit(ctx.getChild(0));
     }
 
     @Override
     public Command visitCommandExpression(bf2Parser.CommandExpressionContext ctx) {
-        System.out.println("visitCommandExpression");
         return super.visitCommandExpression(ctx);
     }
 
     @Override
     public Command visitCommandAssign(bf2Parser.CommandAssignContext ctx) {
-        System.out.println("visitCommandAssign");
         return visit(ctx.getChild(0));
     }
 
     @Override
     public Command visitAssignVariable(bf2Parser.AssignVariableContext ctx) {
-        System.out.println("visitAssignVariable");
-        return visit(ctx.getChild(1));
+        AntlrToVarGetter varGetter = new AntlrToVarGetter();
+        //VarGetter varGet = new VarGetter(0);
+        return varGetter.visit(ctx.getChild(1));
     }
 
 

@@ -8,7 +8,6 @@ public class AntlrToVarGetter extends bf2BaseVisitor<VarGetter>{
     public VarGetter visitNumberGet(bf2Parser.NumberGetContext ctx) {
         String numText = ctx.getChild(0).getText();
         int number = Integer.parseInt(numText);
-        System.out.println("visitNumberGet");
         return new Number(number);
     }
 

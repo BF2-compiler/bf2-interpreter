@@ -1,4 +1,4 @@
 package bf2;
 
-public abstract class Command extends Line {
+public class Command extends Line {
 }

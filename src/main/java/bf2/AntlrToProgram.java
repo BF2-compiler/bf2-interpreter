@@ -31,16 +31,18 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
             else {
                 Line l = lineVisitor.visit(ctx.getChild(i));
                 prog.addLine(l);
-                if (l instanceof Number){
-                    Number tempNum = (Number) l;
-                    mainBoard[pointerX][pointerY] = tempNum.value_;
+                if (l != null) {
+                    for (Command com : l.commandList) {
+                        if (com instanceof Number tempNum) {
+                            mainBoard[pointerY][pointerX] = tempNum.value_;
+                        } else if (com instanceof DirectionalMove) {
+                            pointerX += ((DirectionalMove) com).changeX_;
+                            pointerY += ((DirectionalMove) com).changeY_;
+                        }
+                    }
                 }
-                System.out.println(l);
             }
         }
-
-
-
         return super.visitProgram(ctx);
     }
 }
