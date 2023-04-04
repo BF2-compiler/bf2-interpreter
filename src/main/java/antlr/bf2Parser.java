@@ -1,5 +1,4 @@
 // Generated from bf2.g4 by ANTLR 4.12.0
-
 package antlr;
 
 import org.antlr.v4.runtime.atn.*;
@@ -1175,33 +1174,24 @@ public class bf2Parser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AssignContext extends ParserRuleContext {
+		public VarGetterContext varGetter() {
+			return getRuleContext(VarGetterContext.class,0);
+		}
 		public AssignContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_assign; }
-	 
-		public AssignContext() { }
-		public void copyFrom(AssignContext ctx) {
-			super.copyFrom(ctx);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class AssignVariableContext extends AssignContext {
-		public VarGetterContext varGetter() {
-			return getRuleContext(VarGetterContext.class,0);
-		}
-		public AssignVariableContext(AssignContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).enterAssignVariable(this);
+			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).enterAssign(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).exitAssignVariable(this);
+			if ( listener instanceof bf2Listener ) ((bf2Listener)listener).exitAssign(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitAssignVariable(this);
+			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitAssign(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1210,7 +1200,6 @@ public class bf2Parser extends Parser {
 		AssignContext _localctx = new AssignContext(_ctx, getState());
 		enterRule(_localctx, 18, RULE_assign);
 		try {
-			_localctx = new AssignVariableContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(140);
