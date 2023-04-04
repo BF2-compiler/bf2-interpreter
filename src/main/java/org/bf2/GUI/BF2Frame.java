@@ -1,24 +1,16 @@
 package org.bf2.GUI;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.TextField;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.awt.Dimension;
 
 
 public class BF2Frame extends JFrame {
 
-    Dimension dimensions = new Dimension(600, 300);
+    Dimension dimensions = new Dimension(300, 300);
     
     public BF2Frame() {
         
@@ -29,7 +21,6 @@ public class BF2Frame extends JFrame {
         this.setMinimumSize(dimensions);
         this.setResizable(false);
 
-        this.setLayout(new BorderLayout());
         this.getContentPane();
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,10 +30,11 @@ public class BF2Frame extends JFrame {
 
         // Create new instance of Converter object
         Converter converter = new Converter();
-        JLabel break_line = new JLabel("<b>");
 
         // Convert data to colors using converter object
         var colors = converter.convert_to_color(data);
+        this.setLayout(new GridLayout(converter.SIZE, converter.SIZE, 0, 0));
+
 
         // Add shapes to the frame
         for(int i = 0; i < converter.SIZE; i++) {
@@ -50,7 +42,6 @@ public class BF2Frame extends JFrame {
                 BF2Panel panel = new BF2Panel(colors[i][j]);
                 this.add(panel);
             }
-            this.add(break_line);
         }
     }
 

@@ -23,11 +23,11 @@ public class BF2Panel extends JPanel {
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
 
-        Rectangle rectangle = new Rectangle(new Dimension(20, 20));
+        Rectangle rectangle = new Rectangle(new Dimension(30, 30));
 
         g2d.setPaint(this.color);
         g2d.fill(rectangle);
-        g2d.draw(new Rectangle(new Dimension(20,20)));
+        g2d.draw(rectangle);
 
     }
 }
