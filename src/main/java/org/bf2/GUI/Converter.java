@@ -1,6 +1,7 @@
 package org.bf2.GUI;
 
 import java.awt.Color;
+import java.util.Arrays;
 
 public class Converter {
 
@@ -40,7 +41,7 @@ public class Converter {
 
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
-                color_data[row][col] = new Color(data[row][col]);
+                color_data[row][col] = new Color(data[row][col]%255);
             }
         }
 
