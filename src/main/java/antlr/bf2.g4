@@ -1,7 +1,7 @@
 grammar bf2;
 
 prog
-    : (line EOL)+ line? EOF    # Program
+    : (line EOL)+ line? EOF    # Program //TODO EOL+ \n
     ;
     
 line
