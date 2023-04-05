@@ -68,7 +68,7 @@ expression
     ;
 
 print
-    : '@'
+    : '@' //TODO to delete
     ;
 
     
