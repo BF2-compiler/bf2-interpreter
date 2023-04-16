@@ -26,18 +26,24 @@ public class BF2App {
             // tell ANTLR to build a parse tree
             //parse from the start symbol 'prog'
 
-            ParseTree antlrAST = parser.prog();
+            try
+            {
+                ParseTree antlrAST = parser.prog();
+                // Create a visitor for converting the parse tree into lines expressions objcets
+                AntlrToProgram progVisitor = new AntlrToProgram();
+                Program prog = progVisitor.visit(antlrAST);
 
-            // Create a visitor for converting the parse tree into lines expressions objcets
-            AntlrToProgram progVisitor = new AntlrToProgram();
-            Program prog = progVisitor.visit(antlrAST);
-
-            for (int[] ints : progVisitor.mainBoard) {
-                System.out.println(Arrays.toString(ints));
+                for (int[] ints : progVisitor.mainBoard) {
+                    System.out.println(Arrays.toString(ints));
+                }
+            }
+            catch (Exception e )
+            {
+                System.out.println(e);
             }
 
 
-            // HERE WE NEED TO USE TABLE FROM PROG...
+
 
 
 
