@@ -241,17 +241,15 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code AssignVariable}
-	 * labeled alternative in {@link bf2Parser#assign}.
+	 * Enter a parse tree produced by {@link bf2Parser#assign}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssignVariable(bf2Parser.AssignVariableContext ctx);
+	void enterAssign(bf2Parser.AssignContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code AssignVariable}
-	 * labeled alternative in {@link bf2Parser#assign}.
+	 * Exit a parse tree produced by {@link bf2Parser#assign}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssignVariable(bf2Parser.AssignVariableContext ctx);
+	void exitAssign(bf2Parser.AssignContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code NumberGet}
 	 * labeled alternative in {@link bf2Parser#varGetter}.

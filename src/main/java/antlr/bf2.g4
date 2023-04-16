@@ -1,7 +1,7 @@
 grammar bf2;
 
 prog
-    : NUMBER ',' NUMBER EOL (line EOL+)+ line? EOF    # Program
+    : NUMBER ',' NUMBER EOL+ (line EOL+)+ line? EOF    # Program
     ;
     
 line
@@ -48,7 +48,7 @@ boolStatement
     ;
     
 assign
-    : '=' varGetter     # AssignVariable
+    : '=' varGetter
     ;
     
 varGetter
@@ -90,7 +90,7 @@ directionalMove
     ;
 
 VARNAME
-    : [a-zA-Z]+
+    : [A-Z_]+
     ;
 
 NUMBER

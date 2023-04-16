@@ -5,8 +5,23 @@ import java.awt.Color;
 public class Converter {
 
     int SIZE = 8;
+    Color[] colors;
     
-    public Converter() {}
+    public Converter() {
+        this.colors = generateColorList();
+    }
+
+    public static Color[] generateColorList() {
+
+        int numColors = 255;
+        Color[] colors = new Color[numColors];
+        for (int i = 0; i < numColors; i++) {
+            float hue = (float)i / (float)numColors;
+            colors[i] = Color.getHSBColor(hue, 1.0f, 1.0f);
+        }
+
+        return colors;
+    }
 
     public String convert_to_string(int[][] data) {
 
@@ -40,7 +55,7 @@ public class Converter {
 
         for (int row = 0; row < SIZE; row++) {
             for (int col = 0; col < SIZE; col++) {
-                color_data[row][col] = new Color(data[row][col]%255);
+                color_data[row][col] = colors[data[row][col]];
             }
         }
 

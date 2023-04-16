@@ -7,20 +7,19 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
     @Override
     public Command visitCommandLoop(bf2Parser.CommandLoopContext ctx) {
-        System.out.println("visitCommandLoop");
         return super.visitCommandLoop(ctx);
     }
 
     @Override
     public Command visitCommandIfStatement(bf2Parser.CommandIfStatementContext ctx) {
-        System.out.println("visitCommandIfStatement");
         return super.visitCommandIfStatement(ctx);
     }
 
     @Override
     public Command visitCommandFuncCall(bf2Parser.CommandFuncCallContext ctx) {
-        System.out.println("visitCommandFuncCall");
-        return super.visitCommandFuncCall(ctx);
+        String funcName = ctx.getChild(0).getText();
+
+        return new Function(funcName);
     }
 
     @Override
@@ -40,9 +39,8 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
     }
 
     @Override
-    public Command visitAssignVariable(bf2Parser.AssignVariableContext ctx) {
+    public Command visitAssign(bf2Parser.AssignContext ctx) {
         AntlrToVarGetter varGetter = new AntlrToVarGetter();
-        //VarGetter varGet = new VarGetter(0);
         return varGetter.visit(ctx.getChild(1));
     }
 

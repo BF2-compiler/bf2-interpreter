@@ -148,12 +148,11 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code AssignVariable}
-	 * labeled alternative in {@link bf2Parser#assign}.
+	 * Visit a parse tree produced by {@link bf2Parser#assign}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAssignVariable(bf2Parser.AssignVariableContext ctx);
+	T visitAssign(bf2Parser.AssignContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code NumberGet}
 	 * labeled alternative in {@link bf2Parser#varGetter}.

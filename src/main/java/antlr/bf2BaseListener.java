@@ -257,13 +257,13 @@ public class bf2BaseListener implements bf2Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssignVariable(bf2Parser.AssignVariableContext ctx) { }
+	@Override public void enterAssign(bf2Parser.AssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAssignVariable(bf2Parser.AssignVariableContext ctx) { }
+	@Override public void exitAssign(bf2Parser.AssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
