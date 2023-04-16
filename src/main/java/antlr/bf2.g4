@@ -1,14 +1,13 @@
 grammar bf2;
 
 prog
-    : (line EOL)+ line? EOF    # Program
+    : NUMBER ',' NUMBER EOL (line EOL+)+ line? EOF    # Program
     ;
     
 line
-    : command + COMMENT?        # CommandComment
+    : command+ COMMENT?         # CommandComment
     | COMMENT                   # Comment
     | funcDef                   # DefinitionOfFunction
-    | command + print           # CommandPrint
     ;
 
 command
@@ -66,11 +65,6 @@ expression
     | '(' expression ')'            # ParenthesisExpression
     | varGetter                     # VariableExpression
     ;
-
-print
-    : '@'
-    ;
-
     
 logicalOperator
     : '&&'          # LogicalAnd

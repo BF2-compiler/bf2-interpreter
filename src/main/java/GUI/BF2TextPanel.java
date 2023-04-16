@@ -1,4 +1,4 @@
-package org.bf2.GUI;
+package GUI;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;

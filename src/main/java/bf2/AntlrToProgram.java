@@ -4,20 +4,17 @@ import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
 public class AntlrToProgram extends bf2BaseVisitor<Program>{
-
-    private final int SIZE = 8;
-    public int[][] mainBoard = new int[SIZE][SIZE];
+    private int SIZE_X = 0, SIZE_Y = 0;
+    public int[][] mainBoard;
     public int pointerX = 0, pointerY = 0;
-
-    /*
-        String numText = ctx.getChild(1).getText();
-        mainBoard[pointerX][pointerY] = Integer.parseInt(numText);
-
-        System.out.println(Integer.parseInt(numText));
-     */
 
     @Override
     public Program visitProgram(bf2Parser.ProgramContext ctx) {
+        SIZE_X = Integer.parseInt(ctx.getChild(0).getText());
+        SIZE_Y = Integer.parseInt(ctx.getChild(2).getText());
+
+        mainBoard = new int[SIZE_X][SIZE_Y];
+
         Program prog  = new Program();
 
         AntlrToLine lineVisitor = new AntlrToLine();

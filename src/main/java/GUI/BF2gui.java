@@ -1,6 +1,6 @@
-package org.bf2.GUI;
+package GUI;
 
-public class BF2GUI {
+public class BF2gui {
     
     public static void main(String[] args) {
         BF2Frame frame = new BF2Frame();
