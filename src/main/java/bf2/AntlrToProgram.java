@@ -7,7 +7,7 @@ import GUI.BF2Frame;
 import java.util.Objects;
 
 public class AntlrToProgram extends bf2BaseVisitor<Program>{
-    private int SIZE_X = 0, SIZE_Y = 0;
+    private int SIZE_X, SIZE_Y;
     public int[][] mainBoard;
     public int pointerX = 0, pointerY = 0;
 

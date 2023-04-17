@@ -12,7 +12,8 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
     @Override
     public Command visitCommandIfStatement(bf2Parser.CommandIfStatementContext ctx) {
-        return super.visitCommandIfStatement(ctx);
+        AntlrToIfStatement antlrToIfStatement = new AntlrToIfStatement();
+        return antlrToIfStatement.visit(ctx.getChild(0));
     }
 
     @Override
