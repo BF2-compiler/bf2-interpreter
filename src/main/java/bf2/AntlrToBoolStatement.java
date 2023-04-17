@@ -12,7 +12,10 @@ public class AntlrToBoolStatement extends bf2BaseVisitor<BoolStatement> {
     @Override
     public BoolStatement visitVariableBool(bf2Parser.VariableBoolContext ctx) {
         AntlrToVarGetter varGetter = new AntlrToVarGetter();
-        return new BoolStatement(varGetter.visit(ctx.getChild(1)));
+        System.out.println("Visit Variable Bool");
+        Number num = (Number)varGetter.visit(ctx.getChild(0));
+        System.out.println(num.value_);
+        return new BoolStatement(num);
     }
 
     @Override

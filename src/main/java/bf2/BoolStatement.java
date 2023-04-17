@@ -2,7 +2,7 @@ package bf2;
 
 public class BoolStatement{
     public boolean satisfied;
-    public BoolStatement(VarGetter variable){
+    public BoolStatement(Number variable){
         if (variable instanceof Number){
             satisfied = (((Number) variable).value_ != 0);
         }

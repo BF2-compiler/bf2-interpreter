@@ -22,9 +22,9 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
 
         AntlrToLine lineVisitor = new AntlrToLine();
 
-        for( int i=0; i < ctx.getChildCount(); i++)
+        for (int i=0; i < ctx.getChildCount(); i++)
         {
-            if ( i == ctx.getChildCount() -1 )
+            if (i == ctx.getChildCount() - 1)
             {
                 /* last line of the start symbol prog is EOF */
             }

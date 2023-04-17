@@ -14,7 +14,17 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
         for (int i=0; i < ctx.getChildCount(); i++)
         {
             Command com = commandVisitor.visit(ctx.getChild(i));
-            lines.addCommand(com);
+
+            // Adding commands from ifStatement block to command list of a given line
+            if (com instanceof IfStatement){
+                System.out.println("Statement: " + ((IfStatement) com).satisfied_);
+                if (((IfStatement) com).satisfied_){
+                    for (Command blockCommand : ((IfStatement) com).blockOfCommands.commands_)
+                        lines.addCommand(blockCommand);
+                }
+            }
+            else
+                lines.addCommand(com);
         }
         return lines;
     }
