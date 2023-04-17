@@ -57,18 +57,6 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitDefinitionOfFunction(bf2Parser.DefinitionOfFunctionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code CommandPrint}
-	 * labeled alternative in {@link bf2Parser#line}.
-	 * @param ctx the parse tree
-	 */
-	void enterCommandPrint(bf2Parser.CommandPrintContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code CommandPrint}
-	 * labeled alternative in {@link bf2Parser#line}.
-	 * @param ctx the parse tree
-	 */
-	void exitCommandPrint(bf2Parser.CommandPrintContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code CommandLoop}
 	 * labeled alternative in {@link bf2Parser#command}.
 	 * @param ctx the parse tree
@@ -370,16 +358,6 @@ public interface bf2Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDivision(bf2Parser.DivisionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link bf2Parser#print}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrint(bf2Parser.PrintContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link bf2Parser#print}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrint(bf2Parser.PrintContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code LogicalAnd}
 	 * labeled alternative in {@link bf2Parser#logicalOperator}.

@@ -30,10 +30,5 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
         return super.visitDefinitionOfFunction(ctx);
     }
 
-    @Override
-    public Line visitCommandPrint(bf2Parser.CommandPrintContext ctx) {
-        return super.visitCommandPrint(ctx);
-    }
-
 
 }

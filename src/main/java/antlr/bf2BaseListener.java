@@ -65,18 +65,6 @@ public class bf2BaseListener implements bf2Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCommandPrint(bf2Parser.CommandPrintContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCommandPrint(bf2Parser.CommandPrintContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterCommandLoop(bf2Parser.CommandLoopContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -384,18 +372,6 @@ public class bf2BaseListener implements bf2Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDivision(bf2Parser.DivisionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterPrint(bf2Parser.PrintContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPrint(bf2Parser.PrintContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
