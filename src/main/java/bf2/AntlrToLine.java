@@ -17,7 +17,6 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
 
             // Adding commands from ifStatement block to command list of a given line
             if (com instanceof IfStatement){
-                System.out.println("Statement: " + ((IfStatement) com).satisfied_);
                 if (((IfStatement) com).satisfied_){
                     for (Command blockCommand : ((IfStatement) com).blockOfCommands.commands_)
                         lines.addCommand(blockCommand);

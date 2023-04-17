@@ -13,7 +13,10 @@ public class AntlrToVarGetter extends bf2BaseVisitor<VarGetter>{
 
     @Override
     public VarGetter visitBlockGet(bf2Parser.BlockGetContext ctx) {
-        return super.visitBlockGet(ctx);
+        AntlrToBlock visitBlock = new AntlrToBlock();
+        Block block = visitBlock.visit(ctx.getChild(0));
+        block.isBlockGet_ = true;
+        return block;
     }
 
     @Override

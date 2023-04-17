@@ -6,9 +6,8 @@ import antlr.bf2Parser;
 public class AntlrToBlock extends bf2BaseVisitor<Block> {
     @Override
     public Block visitBlock(bf2Parser.BlockContext ctx) {
-        System.out.println("Antlr To Block");
         AntlrToCommand commandVisitor = new AntlrToCommand();
-        Block block = new Block();
+        Block block = new Block(false);
         for (int i = 1; i < ctx.getChildCount() - 1; i++)
         {
             Command com = commandVisitor.visit(ctx.getChild(i));
