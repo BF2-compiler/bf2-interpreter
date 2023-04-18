@@ -1,5 +1,6 @@
 package bf2;
 
+import GUI.BF2Frame;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
@@ -21,7 +22,12 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
                     for (Command blockCommand : ((IfStatement) com).blockOfCommands.commands_)
                         lines.addCommand(blockCommand);
                 }
-            }
+            } else if (com instanceof Number tempNum) {
+                Board.updateBoard(tempNum.value_);
+            } else if (com instanceof DirectionalMove) {
+                    Board.updatePointerX(((DirectionalMove) com).changeX_);
+                    Board.updatePointerY(((DirectionalMove) com).changeY_);
+                }
             else
                 lines.addCommand(com);
         }
