@@ -26,11 +26,10 @@ public class Converter {
     private Color[] generateColorList() {
 
         int numColors = 255;
-        float interval = 1 / numColors;
         Color[] colors = new Color[numColors];
 
         for (int i = 0; i < numColors; i++) {
-            float brightness = i * interval;
+            float brightness = (float)i / (float)numColors;
             colors[i] = Color.getHSBColor(0, 0, brightness);
         }
 
