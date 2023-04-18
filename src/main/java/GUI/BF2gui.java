@@ -16,7 +16,7 @@ public class BF2gui {
                     {224, 228, 232, 236, 240, 244, 248, 252}
                 };
 
-        frame.print_as_int(hw);
+        frame.print_as_int();
         frame.pack();
         frame.setVisible(true);
     }

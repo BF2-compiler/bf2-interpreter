@@ -11,6 +11,10 @@ public class BF2TextPanel extends JPanel {
         AddText();
     }
 
+    public BF2TextPanel(int number) {
+        this.text = Integer.toString(number);
+    }
+
     public BF2TextPanel(){}
 
     public void AddText() {
