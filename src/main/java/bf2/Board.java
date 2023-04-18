@@ -22,6 +22,11 @@ public class Board {
         Cell newCell = new Cell(value);
         mainBoard[pointerY][pointerX] = newCell;
     }
+
+    public static int getCurrentValue(){
+        return mainBoard[pointerY][pointerX].getValue_();
+    }
+
     public static void updatePointerX(int change){
         pointerX += change;
     }
