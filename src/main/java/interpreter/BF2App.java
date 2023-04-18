@@ -3,6 +3,8 @@ package interpreter;
 import antlr.bf2Parser;
 import antlr.bf2Lexer;
 import bf2.AntlrToProgram;
+import bf2.Board;
+import bf2.Cell;
 import bf2.Program;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.CharStream;
@@ -33,8 +35,11 @@ public class BF2App {
                 AntlrToProgram progVisitor = new AntlrToProgram();
                 Program prog = progVisitor.visit(antlrAST);
 
-                for (int[] ints : progVisitor.mainBoard) {
-                    System.out.println(Arrays.toString(ints));
+                for (Cell[] ints : Board.mainBoard) {
+                    for (Cell int_ : ints) {
+                        System.out.print(int_.getValue_() + "\t");
+                    }
+                    System.out.println();
                 }
             }
             catch (Exception e )
