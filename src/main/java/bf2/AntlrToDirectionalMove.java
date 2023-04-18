@@ -10,7 +10,8 @@ public class AntlrToDirectionalMove extends bf2BaseVisitor<DirectionalMove> {
         {
             throw new Exception("Line: " +
                     ctx.start.getLine() + " at: " +
-                    ctx.start.getCharPositionInLine());
+                    ctx.start.getCharPositionInLine() +
+                    " element: " + ctx.getText());
         }
         return new DirectionalMove(-1, 0);
     }
@@ -21,7 +22,8 @@ public class AntlrToDirectionalMove extends bf2BaseVisitor<DirectionalMove> {
         {
             throw new Exception("Line: " +
                     ctx.start.getLine() + " at: " +
-                    ctx.start.getCharPositionInLine());
+                    ctx.start.getCharPositionInLine() +
+                    " element: " + ctx.getText());
         }
         return new DirectionalMove(1, 0);
     }
@@ -32,7 +34,8 @@ public class AntlrToDirectionalMove extends bf2BaseVisitor<DirectionalMove> {
         {
             throw new Exception("Line: " +
                     ctx.start.getLine() + " at: " +
-                    ctx.start.getCharPositionInLine());
+                    ctx.start.getCharPositionInLine() +
+                    " element: " + ctx.getText());
         }
         return new DirectionalMove(0, -1);
     }
@@ -43,7 +46,8 @@ public class AntlrToDirectionalMove extends bf2BaseVisitor<DirectionalMove> {
         {
             throw new Exception("Line: " +
                     ctx.start.getLine() + " at: " +
-                    ctx.start.getCharPositionInLine());
+                    ctx.start.getCharPositionInLine() +
+                    " element: " + ctx.getText());
         }
         return new DirectionalMove(0, 1);
     }
