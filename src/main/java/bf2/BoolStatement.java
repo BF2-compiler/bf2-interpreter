@@ -15,4 +15,7 @@ public class BoolStatement{
         else
             satisfied = false;
     }
+    public BoolStatement(){
+        satisfied = false;
+    }
 }
