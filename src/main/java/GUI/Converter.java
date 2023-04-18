@@ -18,7 +18,7 @@ public class Converter {
     }
 
     /**
-     * Generates color palette used in other functions
+     * Generates mono-chromatic color palette used in other functions
      * 
      * @return color palette as 1-dim array of type Color
      * @see Color
@@ -26,11 +26,12 @@ public class Converter {
     private Color[] generateColorList() {
 
         int numColors = 255;
+        float interval = 1 / numColors;
         Color[] colors = new Color[numColors];
 
         for (int i = 0; i < numColors; i++) {
-            float hue = (float) i / (float) numColors;
-            colors[i] = Color.getHSBColor(hue, 1.0f, 1.0f);
+            float brightness = i * interval;
+            colors[i] = Color.getHSBColor(0, 0, brightness);
         }
 
         return colors;
@@ -88,7 +89,7 @@ public class Converter {
 
         for (int row = 0; row < Board.SIZE_Y; row++) {
             for (int col = 0; col < Board.SIZE_X; col++) {
-                color_data[row][col] = colors[Board.mainBoard[row][col].getValue_() % 256];
+                color_data[row][col] = colors[Board.mainBoard[row][col].getValue_() % 255];
             }
         }
 
