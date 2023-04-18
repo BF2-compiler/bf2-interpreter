@@ -10,11 +10,17 @@ public class Board {
         SIZE_X = size_x;
         SIZE_Y = size_y;
         mainBoard = new Cell[size_x][size_y];
+        for (int i = 0; i < SIZE_Y; i++){
+            for (int j = 0; j < SIZE_X; j++){
+                Cell newCell = new Cell(0);
+                mainBoard[i][j] = newCell;
+            }
+        }
     }
 
     public static void updateBoard(int value){
         Cell newCell = new Cell(value);
-        mainBoard[pointerX][pointerY] = newCell;
+        mainBoard[pointerY][pointerX] = newCell;
     }
     public static void updatePointerX(int change){
         pointerX += change;
