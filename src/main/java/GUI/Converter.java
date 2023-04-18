@@ -47,7 +47,7 @@ public class Converter {
 
         for (int row = 0; row < Board.SIZE_Y; row++) {
             for (int col = 0; col < Board.SIZE_X; col++) {
-                s.append(Board.mainBoard[row][col].toString());
+                s.append((char)Board.mainBoard[row][col].getValue_());
             }
         }
 
@@ -67,7 +67,7 @@ public class Converter {
 
         for (int row = 0; row < Board.SIZE_Y; row++) {
             for (int col = 0; col < Board.SIZE_X; col++) {
-                new_data[row][col] = Board.mainBoard[row][col].toString();
+                new_data[row][col] = Integer.toString(Board.mainBoard[row][col].getValue_());
             }
         }
 
@@ -88,7 +88,7 @@ public class Converter {
 
         for (int row = 0; row < Board.SIZE_Y; row++) {
             for (int col = 0; col < Board.SIZE_X; col++) {
-                color_data[row][col] = colors[Board.mainBoard[row][col].getValue_()];
+                color_data[row][col] = colors[Board.mainBoard[row][col].getValue_() % 256];
             }
         }
 
