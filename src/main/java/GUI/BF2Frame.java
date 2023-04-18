@@ -22,7 +22,7 @@ public class BF2Frame extends JFrame {
         // Default setup for the frame
         this.setTitle("BF^2");
 
-        URL iconURL = getClass().getResource("/img/brain.png");
+        URL iconURL = getClass().getResource("img/brain.png");
         ImageIcon icon = new ImageIcon(iconURL);
         this.setIconImage(icon.getImage());
 
