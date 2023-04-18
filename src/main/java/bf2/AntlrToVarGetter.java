@@ -21,6 +21,7 @@ public class AntlrToVarGetter extends bf2BaseVisitor<VarGetter>{
 
     @Override
     public VarGetter visitGet(bf2Parser.GetContext ctx) {
-        return super.visitGet(ctx);
+        int number = Board.getCurrentValue();
+        return new Number(number);
     }
 }

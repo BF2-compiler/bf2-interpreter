@@ -22,15 +22,15 @@ public class Board {
         Cell newCell = new Cell(value);
         mainBoard[pointerY][pointerX] = newCell;
     }
-    public static void updatePointerX(int change) {
-        if (pointerX + change < SIZE_X && pointerX + change > 0)
-        {
-            pointerX += change;
-        } else
-        {
-//            throw new Exception(String.valueOf(pointerX + change));
-        }
 
+
+    public static int getCurrentValue(){
+        return mainBoard[pointerY][pointerX].getValue_();
+    }
+
+    public static void updatePointerX(int change){
+        pointerX += change;
+main
     }
     public static void updatePointerY(int change) {
         if (pointerY + change < SIZE_Y && pointerY + change > 0)
