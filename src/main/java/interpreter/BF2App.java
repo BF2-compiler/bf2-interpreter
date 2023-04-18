@@ -41,6 +41,13 @@ public class BF2App {
                     }
                     System.out.println();
                 }
+                if (progVisitor.semanticErrors.isEmpty())
+                {
+                    for ( String error : progVisitor.semanticErrors) {
+                        System.out.println(error);
+                    }
+                }
+
             }
             catch (Exception e )
             {

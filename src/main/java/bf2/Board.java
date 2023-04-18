@@ -22,11 +22,24 @@ public class Board {
         Cell newCell = new Cell(value);
         mainBoard[pointerY][pointerX] = newCell;
     }
-    public static void updatePointerX(int change){
-        pointerX += change;
+    public static void updatePointerX(int change) throws Exception {
+        if (pointerX + change < SIZE_X && pointerX + change > 0)
+        {
+            pointerX += change;
+        } else
+        {
+            throw new Exception(String.valueOf(pointerY + change));
+        }
+
     }
-    public static void updatePointerY(int change){
-        pointerY += change;
+    public static void updatePointerY(int change) throws Exception {
+        if (pointerY + change < SIZE_Y && pointerY + change > 0)
+        {
+            pointerY += change;
+        } else {
+            throw new Exception(String.valueOf(pointerY + change));
+        }
+
     }
 
 //    public int[][] boardToInt(){
