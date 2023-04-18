@@ -68,7 +68,7 @@ public class bf2BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements bf
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx) throws Exception { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -285,28 +285,28 @@ public class bf2BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements bf
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMoveLeft(bf2Parser.MoveLeftContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMoveLeft(bf2Parser.MoveLeftContext ctx) throws Exception { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMoveRight(bf2Parser.MoveRightContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMoveRight(bf2Parser.MoveRightContext ctx) throws Exception { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMoveUp(bf2Parser.MoveUpContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMoveUp(bf2Parser.MoveUpContext ctx) throws Exception { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMoveDown(bf2Parser.MoveDownContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMoveDown(bf2Parser.MoveDownContext ctx) throws Exception { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

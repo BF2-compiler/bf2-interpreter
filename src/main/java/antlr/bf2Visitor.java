@@ -66,7 +66,7 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx);
+	T visitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx) throws Exception;
 	/**
 	 * Visit a parse tree produced by the {@code CommandExpression}
 	 * labeled alternative in {@link bf2Parser#command}.
@@ -278,28 +278,28 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMoveLeft(bf2Parser.MoveLeftContext ctx);
+	T visitMoveLeft(bf2Parser.MoveLeftContext ctx) throws Exception;
 	/**
 	 * Visit a parse tree produced by the {@code MoveRight}
 	 * labeled alternative in {@link bf2Parser#directionalMove}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMoveRight(bf2Parser.MoveRightContext ctx);
+	T visitMoveRight(bf2Parser.MoveRightContext ctx) throws Exception;
 	/**
 	 * Visit a parse tree produced by the {@code MoveUp}
 	 * labeled alternative in {@link bf2Parser#directionalMove}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMoveUp(bf2Parser.MoveUpContext ctx);
+	T visitMoveUp(bf2Parser.MoveUpContext ctx) throws Exception;
 	/**
 	 * Visit a parse tree produced by the {@code MoveDown}
 	 * labeled alternative in {@link bf2Parser#directionalMove}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMoveDown(bf2Parser.MoveDownContext ctx);
+	T visitMoveDown(bf2Parser.MoveDownContext ctx) throws Exception;
 	/**
 	 * Visit a parse tree produced by the {@code LowerBoard}
 	 * labeled alternative in {@link bf2Parser#directionalMove}.

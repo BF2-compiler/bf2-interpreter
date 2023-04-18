@@ -37,16 +37,19 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
                         if (com instanceof Number tempNum) {
                             Board.updateBoard(tempNum.value_);
                         } else if (com instanceof DirectionalMove) {
-                            try{
+//                            try{
                                 Board.updatePointerX(((DirectionalMove) com).changeX_);
                                 Board.updatePointerY(((DirectionalMove) com).changeY_);
-                                semanticErrors.add("something2.0");
-                            } catch (Exception e)
-                            {
-                                semanticErrors.add(e.toString());
-                                semanticErrors.add("something");
-                            }
-
+//                            } catch (Exception e)
+//                            {
+//                                List<Line> tempList= prog.lines;
+//                                while (tempList.remove(null));
+//                                int line = tempList.indexOf(l) + 2;
+//                                int index = l.commandList.indexOf(com);
+//                                semanticErrors.add(" Getting out of range in line: "
+//                                        + line + " by command: " + ctx.getChild(i).getText());
+//                            }
+//
                         } else if (com instanceof Function f){
                             if (Objects.equals(f.name_, "READ_AS_STRING")){
                                 BF2Frame frame = new BF2Frame();
