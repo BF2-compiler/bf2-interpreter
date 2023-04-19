@@ -4,9 +4,13 @@ import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 import GUI.BF2Frame;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class AntlrToProgram extends bf2BaseVisitor<Program>{
+
+    public List<String> semanticErrors = new ArrayList<>();
 
     @Override
     public Program visitProgram(bf2Parser.ProgramContext ctx) {
@@ -30,12 +34,7 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
                 prog.addLine(l);
                 if (l != null) {
                     for (Command com : l.commandList) {
-                        if (com instanceof Number tempNum) {
-                            Board.updateBoard(tempNum.value_);
-                        } else if (com instanceof DirectionalMove) {
-                            Board.updatePointerX(((DirectionalMove) com).changeX_);
-                            Board.updatePointerY(((DirectionalMove) com).changeY_);
-                        } else if (com instanceof Function f){
+                        if (com instanceof Function f){
                             if (Objects.equals(f.name_, "READ_AS_STRING")){
                                 BF2Frame frame = new BF2Frame();
                                 frame.print_as_string();

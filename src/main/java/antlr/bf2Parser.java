@@ -1,6 +1,7 @@
 // Generated from bf2.g4 by ANTLR 4.12.0
 package antlr;
 
+import Exceptions.PointerOutOfBoardException;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -483,7 +484,13 @@ public class bf2Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitCommandDirectionalMove(this);
+			if ( visitor instanceof bf2Visitor ) {
+				try {
+					return ((bf2Visitor<? extends T>)visitor).visitCommandDirectionalMove(this);
+				} catch (Exception e) {
+					throw new PointerOutOfBoardException(e.getMessage());
+				}
+			}
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1904,7 +1911,13 @@ public class bf2Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitMoveUp(this);
+			if ( visitor instanceof bf2Visitor ) {
+				try {
+					return ((bf2Visitor<? extends T>)visitor).visitMoveUp(this);
+				} catch (Exception e) {
+					throw new PointerOutOfBoardException(e.getMessage());
+				}
+			}
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1921,7 +1934,13 @@ public class bf2Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitMoveLeft(this);
+			if ( visitor instanceof bf2Visitor ) {
+				try {
+					return ((bf2Visitor<? extends T>)visitor).visitMoveLeft(this);
+				} catch (Exception e) {
+					throw new PointerOutOfBoardException(e.getMessage());
+				}
+			}
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1938,7 +1957,13 @@ public class bf2Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitMoveDown(this);
+			if ( visitor instanceof bf2Visitor ) {
+				try {
+					return ((bf2Visitor<? extends T>)visitor).visitMoveDown(this);
+				} catch (Exception e) {
+					throw new PointerOutOfBoardException(e.getMessage());
+				}
+			}
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1972,7 +1997,13 @@ public class bf2Parser extends Parser {
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof bf2Visitor ) return ((bf2Visitor<? extends T>)visitor).visitMoveRight(this);
+			if ( visitor instanceof bf2Visitor ) {
+				try {
+					return ((bf2Visitor<? extends T>)visitor).visitMoveRight(this);
+				} catch (Exception e) {
+					throw new PointerOutOfBoardException(e.getMessage());
+				}
+			}
 			else return visitor.visitChildren(this);
 		}
 	}

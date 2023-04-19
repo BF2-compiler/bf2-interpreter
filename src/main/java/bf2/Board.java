@@ -23,15 +23,23 @@ public class Board {
         mainBoard[pointerY][pointerX] = newCell;
     }
 
+
     public static int getCurrentValue(){
         return mainBoard[pointerY][pointerX].getValue_();
     }
 
     public static void updatePointerX(int change){
         pointerX += change;
+main
     }
-    public static void updatePointerY(int change){
-        pointerY += change;
+    public static void updatePointerY(int change) {
+        if (pointerY + change < SIZE_Y && pointerY + change > 0)
+        {
+            pointerY += change;
+        } else {
+//            throw new ArrayIndexOutOfBoundsException(String.valueOf(pointerY + change));
+        }
+
     }
 
 //    public int[][] boardToInt(){
