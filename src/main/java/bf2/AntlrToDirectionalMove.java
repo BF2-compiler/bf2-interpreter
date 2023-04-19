@@ -19,7 +19,7 @@ public class AntlrToDirectionalMove extends bf2BaseVisitor<DirectionalMove> {
 
     @Override
     public DirectionalMove visitMoveRight(bf2Parser.MoveRightContext ctx) throws Exception {
-//        if( ctx.getParent() instanceof AntlrToBlock )
+
         if (Board.tempPointerX >= Board.SIZE_X - 1 )
         {
             throw new Exception("Line: " +
@@ -27,6 +27,10 @@ public class AntlrToDirectionalMove extends bf2BaseVisitor<DirectionalMove> {
                     ctx.start.getCharPositionInLine() +
                     " element: " + ctx.getText());
         }
+//        if( ctx.getParent().getParent().getText()[0].equals '{')
+//        {
+//
+//        }
         Board.tempPointerX += 1;
         return new DirectionalMove(1, 0);
     }
