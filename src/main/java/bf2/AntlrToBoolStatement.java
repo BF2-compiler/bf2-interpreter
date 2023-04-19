@@ -32,9 +32,6 @@ public class AntlrToBoolStatement extends bf2BaseVisitor<BoolStatement> {
         else rightValue = ((Number) right).value_;
 
 
-        System.out.println("VariableOperatorVariable:");
-        System.out.println("Left value: " + leftValue + " Right value: " + rightValue);
-
         AntlrToComparisonOperator comparisonOperatorVisitor = new AntlrToComparisonOperator();
         ComparisonOperator operator = comparisonOperatorVisitor.visit(ctx.getChild(1));
         BoolStatement returnStatement = new BoolStatement();
