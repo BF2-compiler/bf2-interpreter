@@ -9,7 +9,7 @@ public class Board {
     {
         SIZE_X = size_x;
         SIZE_Y = size_y;
-        mainBoard = new Cell[size_x][size_y];
+        mainBoard = new Cell[size_y][size_x];
         for (int i = 0; i < SIZE_Y; i++){
             for (int j = 0; j < SIZE_X; j++){
                 Cell newCell = new Cell(0);
