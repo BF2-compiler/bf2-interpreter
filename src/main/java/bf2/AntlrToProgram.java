@@ -38,18 +38,18 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
                         } else if (com instanceof Function f){
                             if (Objects.equals(f.name_, "READ_AS_STRING")){
                                 BF2Frame frame = new BF2Frame();
-                                //frame.print_as_string(Board.mainBoard);
+                                frame.print_as_string();
                                 frame.pack();
                                 frame.setVisible(true);
                             }
                             else if (Objects.equals(f.name_, "READ_AS_INT")){
                                 BF2Frame frame = new BF2Frame();
-                                //frame.print_as_int(mainBoard);
+                                frame.print_as_int();
                                 frame.pack();
                                 frame.setVisible(true);
                             } else if (Objects.equals(f.name_, "READ_AS_COLORS")){
                                 BF2Frame frame = new BF2Frame();
-                                //frame.print_as_colors(mainBoard);
+                                frame.print_as_colors();
                                 frame.pack();
                                 frame.setVisible(true);
                             }
