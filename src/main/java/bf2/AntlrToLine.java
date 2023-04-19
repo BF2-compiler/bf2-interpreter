@@ -22,13 +22,7 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
                     for (Command blockCommand : ((IfStatement) com).blockOfCommands.commands_)
                         lines.addCommand(blockCommand);
                 }
-            } else if (com instanceof Number tempNum) {
-                Board.updateBoard(tempNum.value_);
-            } else if (com instanceof DirectionalMove) {
-                    Board.updatePointerX(((DirectionalMove) com).changeX_);
-                    Board.updatePointerY(((DirectionalMove) com).changeY_);
-                }
-            else
+            } else
                 lines.addCommand(com);
         }
         return lines;

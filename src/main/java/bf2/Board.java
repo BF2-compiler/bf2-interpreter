@@ -30,16 +30,9 @@ public class Board {
 
     public static void updatePointerX(int change){
         pointerX += change;
-main
     }
     public static void updatePointerY(int change) {
-        if (pointerY + change < SIZE_Y && pointerY + change > 0)
-        {
-            pointerY += change;
-        } else {
-//            throw new ArrayIndexOutOfBoundsException(String.valueOf(pointerY + change));
-        }
-
+        pointerY += change;
     }
 
 //    public int[][] boardToInt(){

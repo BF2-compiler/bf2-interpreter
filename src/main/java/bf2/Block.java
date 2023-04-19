@@ -51,7 +51,7 @@ public class Block extends VarGetter{
                 }
             }
         }
-
+        System.out.println("Block value: " + boardCopy[pointerYCopy][pointerXCopy].getValue_());
         return boardCopy[pointerYCopy][pointerXCopy].getValue_();
     }
 }
