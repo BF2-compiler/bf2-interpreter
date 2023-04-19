@@ -84,7 +84,7 @@ public class Converter {
      */
     public Color[][] convert_to_color() {
 
-        Color[][] color_data = new Color[Board.SIZE_Y][Board.SIZE_Y];
+        Color[][] color_data = new Color[Board.SIZE_Y][Board.SIZE_X];
 
         for (int row = 0; row < Board.SIZE_Y; row++) {
             for (int col = 0; col < Board.SIZE_X; col++) {
