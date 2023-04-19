@@ -6,25 +6,28 @@ import antlr.bf2BaseVisitor;
 public class AntlrToDirectionalMove extends bf2BaseVisitor<DirectionalMove> {
     @Override
     public DirectionalMove visitMoveLeft(bf2Parser.MoveLeftContext ctx) throws Exception {
-        if (Board.pointerX <= 0)
+        if (Board.tempPointerX <= 0)
         {
             throw new Exception("Line: " +
                     ctx.start.getLine() + " at: " +
                     ctx.start.getCharPositionInLine() +
                     " element: " + ctx.getText());
         }
+        Board.tempPointerX -= 1;
         return new DirectionalMove(-1, 0);
     }
 
     @Override
     public DirectionalMove visitMoveRight(bf2Parser.MoveRightContext ctx) throws Exception {
-        if (Board.pointerX >= Board.SIZE_X - 1 )
+//        if( ctx.getParent() instanceof AntlrToBlock )
+        if (Board.tempPointerX >= Board.SIZE_X - 1 )
         {
             throw new Exception("Line: " +
                     ctx.start.getLine() + " at: " +
                     ctx.start.getCharPositionInLine() +
                     " element: " + ctx.getText());
         }
+        Board.tempPointerX += 1;
         return new DirectionalMove(1, 0);
     }
 
@@ -37,6 +40,7 @@ public class AntlrToDirectionalMove extends bf2BaseVisitor<DirectionalMove> {
                     ctx.start.getCharPositionInLine() +
                     " element: " + ctx.getText());
         }
+        Board.tempPointerY += 1;
         return new DirectionalMove(0, -1);
     }
 
@@ -49,6 +53,7 @@ public class AntlrToDirectionalMove extends bf2BaseVisitor<DirectionalMove> {
                     ctx.start.getCharPositionInLine() +
                     " element: " + ctx.getText());
         }
+        Board.tempPointerY -= 1;
         return new DirectionalMove(0, 1);
     }
 
