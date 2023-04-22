@@ -3,9 +3,6 @@ package bf2;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AntlrToLine extends bf2BaseVisitor<Line>{
     @Override
     public Line visitCommandComment(bf2Parser.CommandCommentContext ctx) {

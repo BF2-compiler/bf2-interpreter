@@ -5,15 +5,11 @@ import antlr.bf2Lexer;
 import bf2.AntlrToProgram;
 import bf2.Board;
 import bf2.Cell;
-import bf2.Program;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-
-import java.io.Console;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class BF2App {
     public static void main(String[] args) {
@@ -31,9 +27,9 @@ public class BF2App {
             try
             {
                 ParseTree antlrAST = parser.prog();
-                // Create a visitor for converting the parse tree into lines expressions objcets
+                // Create a visitor for converting the parse tree into lines expressions objects
                 AntlrToProgram progVisitor = new AntlrToProgram();
-                Program prog = progVisitor.visit(antlrAST);
+                progVisitor.visit(antlrAST);
 
                 for (Cell[] ints : Board.mainBoard) {
                     for (Cell int_ : ints) {
@@ -42,24 +38,17 @@ public class BF2App {
                     System.out.println();
                 }
             }
-            catch (Exception e )
+            catch (Exception e)
             {
                 System.out.println(e);
             }
-
-
-
-
-
-
-
 
         }
     }
 
     private static bf2Parser getParser(String fileName)
     {
-        bf2Parser parser = null;
+        bf2Parser parser;
 
         try {
             CharStream input = CharStreams.fromFileName(fileName);

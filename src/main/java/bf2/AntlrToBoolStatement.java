@@ -23,7 +23,7 @@ public class AntlrToBoolStatement extends bf2BaseVisitor<BoolStatement> {
         VarGetter left = varGetterVisitor.visit(ctx.getChild(0));
         VarGetter right = varGetterVisitor.visit(ctx.getChild(2));
 
-        int leftValue = 0, rightValue = 0;
+        int leftValue, rightValue;
 
         if (left instanceof Block) leftValue = ((Block) left).getValueFromCommands();
         else leftValue = ((Number) left).value_;
