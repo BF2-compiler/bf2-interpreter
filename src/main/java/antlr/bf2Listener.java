@@ -149,6 +149,16 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitFuncCall(bf2Parser.FuncCallContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link bf2Parser#funcBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterFuncBlock(bf2Parser.FuncBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link bf2Parser#funcBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitFuncBlock(bf2Parser.FuncBlockContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code DoLoop}
 	 * labeled alternative in {@link bf2Parser#loop}.
 	 * @param ctx the parse tree

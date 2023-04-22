@@ -15,12 +15,17 @@ public class AntlrListener extends bf2BaseListener{
         int sizeX = Integer.parseInt(ctx.getChild(0).getText());
         int sizeY = Integer.parseInt(ctx.getChild(2).getText());
 
+        if (sizeX == 0 || sizeY == 0) {
+            throw new InvalidBoardSizeException("Board size cannot be 0. Line: " +
+                    ctx.start.getLine() + " at: " +
+                    ctx.start.getCharPositionInLine());
+        }
+
         ListenerBoard.setInitialBoard(sizeX, sizeY);
     }
 
     @Override
     public void exitProgram(bf2Parser.ProgramContext ctx) {
-        System.out.println("Exited program");
     }
 
     @Override
@@ -43,7 +48,6 @@ public class AntlrListener extends bf2BaseListener{
 
     @Override
     public void enterDefinitionOfFunction(bf2Parser.DefinitionOfFunctionContext ctx) {
-        super.enterDefinitionOfFunction(ctx);
     }
 
     @Override
@@ -112,12 +116,16 @@ public class AntlrListener extends bf2BaseListener{
 
     @Override
     public void enterFuncDef(bf2Parser.FuncDefContext ctx) {
-        super.enterFuncDef(ctx);
+        String functionName =  ctx.getChild(2).getText();
+        if (!FunctionNamesTable.tryAddFunctionName(functionName)){
+            int position = ctx.start.getCharPositionInLine() + 1;
+            throw new RedefinitionOfFunctionException("Redefinition of " + functionName + " function. " +
+                    "Line: " + ctx.start.getLine() + " at: " + position);
+        }
     }
 
     @Override
     public void exitFuncDef(bf2Parser.FuncDefContext ctx) {
-        super.exitFuncDef(ctx);
     }
 
     @Override
@@ -152,12 +160,10 @@ public class AntlrListener extends bf2BaseListener{
 
     @Override
     public void enterBlock(bf2Parser.BlockContext ctx) {
-        super.enterBlock(ctx);
     }
 
     @Override
     public void exitBlock(bf2Parser.BlockContext ctx) {
-        super.exitBlock(ctx);
     }
 
     @Override
@@ -232,12 +238,22 @@ public class AntlrListener extends bf2BaseListener{
 
     @Override
     public void enterBlockGet(bf2Parser.BlockGetContext ctx) {
-        super.enterBlockGet(ctx);
+        ListenerBoard.savePointerPosition();
     }
 
     @Override
     public void exitBlockGet(bf2Parser.BlockGetContext ctx) {
-        super.exitBlockGet(ctx);
+        ListenerBoard.loadLastPointerPosition();
+    }
+
+    @Override
+    public void enterFuncBlock(bf2Parser.FuncBlockContext ctx) {
+        ListenerBoard.allowPointersChange = false;
+    }
+
+    @Override
+    public void exitFuncBlock(bf2Parser.FuncBlockContext ctx) {
+        ListenerBoard.allowPointersChange = true;
     }
 
     @Override
@@ -392,66 +408,58 @@ public class AntlrListener extends bf2BaseListener{
 
     @Override
     public void enterMoveLeft(bf2Parser.MoveLeftContext ctx) {
-        if (ListenerBoard.pointerX <= 0){
+        if (ListenerBoard.pointerX <= 0 && ListenerBoard.allowPointersChange){
+            int position = ctx.start.getCharPositionInLine() + 1;
             throw new PointerOutOfBoardException("Line: " +
-                    ctx.start.getLine() + " at: " +
-                    ctx.start.getCharPositionInLine());
+                    ctx.start.getLine() + " at: " + position);
         }
     }
 
     @Override
     public void exitMoveLeft(bf2Parser.MoveLeftContext ctx) {
-        if (ctx.getParent().getParent().getText().charAt(0) != '{'){
-            ListenerBoard.updatePointerX(-1);
-        }
+        ListenerBoard.updatePointerX(-1);
     }
 
     @Override
     public void enterMoveRight(bf2Parser.MoveRightContext ctx) {
-        if (ListenerBoard.pointerX >= ListenerBoard.SIZE_X - 1){
+        if (ListenerBoard.pointerX >= ListenerBoard.SIZE_X - 1 && ListenerBoard.allowPointersChange){
+            int position = ctx.start.getCharPositionInLine() + 1;
             throw new PointerOutOfBoardException("Line: " +
-                    ctx.start.getLine() + " at: " +
-                    ctx.start.getCharPositionInLine());
+                    ctx.start.getLine() + " at: " + position);
         }
     }
 
     @Override
     public void exitMoveRight(bf2Parser.MoveRightContext ctx) {
-        if (ctx.getParent().getParent().getText().charAt(0) != '{'){
-            ListenerBoard.updatePointerX(1);
-        }
+        ListenerBoard.updatePointerX(1);
     }
 
     @Override
     public void enterMoveUp(bf2Parser.MoveUpContext ctx) {
-        if (ListenerBoard.pointerY <= 0){
+        if (ListenerBoard.pointerY <= 0 && ListenerBoard.allowPointersChange){
+            int position = ctx.start.getCharPositionInLine() + 1;
             throw new PointerOutOfBoardException("Line: " +
-                    ctx.start.getLine() + " at: " +
-                    ctx.start.getCharPositionInLine());
+                    ctx.start.getLine() + " at: " + position);
         }
     }
 
     @Override
     public void exitMoveUp(bf2Parser.MoveUpContext ctx) {
-        if (ctx.getParent().getParent().getText().charAt(0) != '{'){
-            ListenerBoard.updatePointerY(-1);
-        }
+        ListenerBoard.updatePointerY(-1);
     }
 
     @Override
     public void enterMoveDown(bf2Parser.MoveDownContext ctx) {
-        if (ListenerBoard.pointerY >= ListenerBoard.SIZE_Y - 1){
+        if (ListenerBoard.pointerY >= ListenerBoard.SIZE_Y - 1 && ListenerBoard.allowPointersChange){
+            int position = ctx.start.getCharPositionInLine() + 1;
             throw new PointerOutOfBoardException("Line: " +
-                    ctx.start.getLine() + " at: " +
-                    ctx.start.getCharPositionInLine());
+                    ctx.start.getLine() + " at: " + position);
         }
     }
 
     @Override
     public void exitMoveDown(bf2Parser.MoveDownContext ctx) {
-        if (ctx.getParent().getParent().getText().charAt(0) != '{'){
-            ListenerBoard.updatePointerY(1);
-        }
+        ListenerBoard.updatePointerY(1);
     }
 
     @Override

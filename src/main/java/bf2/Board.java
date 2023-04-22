@@ -4,8 +4,6 @@ public class Board {
     public static int SIZE_X, SIZE_Y;
     public static Cell[][] mainBoard = null;
     public static int pointerX = 0, pointerY = 0;
-    public static int tempPointerX = 0, tempPointerY = 0;
-
     public static void setInitialBoard(int size_x, int size_y)
     {
         SIZE_X = size_x;
