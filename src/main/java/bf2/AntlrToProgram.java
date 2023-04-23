@@ -31,7 +31,7 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
             }
             else {
                 Line l = lineVisitor.visit(ctx.getChild(i));
-                prog.addLine(l);
+//                prog.addLine(l);
             }
         }
         return super.visitProgram(ctx);

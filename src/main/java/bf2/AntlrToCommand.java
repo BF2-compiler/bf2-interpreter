@@ -24,15 +24,9 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
     }
 
     @Override
-    public Command visitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx) throws Exception {
+    public Command visitCommandDirectionalMove(bf2Parser.CommandDirectionalMoveContext ctx){
         AntlrToDirectionalMove directionalMove = new AntlrToDirectionalMove();
-        try{
-            return directionalMove.visit(ctx.getChild(0));
-        } catch (Exception e)
-        {
-            throw new Exception(e.getMessage());
-        }
-
+        return directionalMove.visit(ctx.getChild(0));
     }
 
     @Override
