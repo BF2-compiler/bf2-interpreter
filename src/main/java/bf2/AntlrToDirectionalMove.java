@@ -10,7 +10,7 @@ public class AntlrToDirectionalMove extends bf2BaseVisitor<DirectionalMove> {
     }
 
     @Override
-    public DirectionalMove visitMoveRight(bf2Parser.MoveRightContext ctx) {
+    public DirectionalMove visitMoveRight(bf2Parser.MoveRightContext ctx){
         return new DirectionalMove(1, 0);
     }
 

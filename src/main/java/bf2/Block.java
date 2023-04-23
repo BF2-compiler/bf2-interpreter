@@ -25,33 +25,31 @@ public class Block extends VarGetter{
         Cell[][] boardCopy = Board.mainBoard;
         int pointerXCopy = Board.pointerX;
         int pointerYCopy = Board.pointerY;
-        for (Command com : commands_){
+        for (Command com : commands_) {
             if (com instanceof Number tempNum) {
                 boardCopy[pointerYCopy][pointerXCopy] = new Cell(tempNum.value_);
             } else if (com instanceof DirectionalMove) {
                 pointerXCopy += ((DirectionalMove) com).changeX_;
                 pointerYCopy += ((DirectionalMove) com).changeY_;
-            } else if (com instanceof Function f){
-                if (Objects.equals(f.name_, "READ_AS_STRING")){
+            } else if (com instanceof Function f) {
+                if (Objects.equals(f.name_, "READ_AS_STRING")) {
                     BF2Frame frame = new BF2Frame();
-                    //frame.print_as_string(Board.mainBoard);
+                    frame.print_as_string();
                     frame.pack();
                     frame.setVisible(true);
-                }
-                else if (Objects.equals(f.name_, "READ_AS_INT")){
+                } else if (Objects.equals(f.name_, "READ_AS_INT")) {
                     BF2Frame frame = new BF2Frame();
-                    //frame.print_as_int(mainBoard);
+                    frame.print_as_int();
                     frame.pack();
                     frame.setVisible(true);
-                } else if (Objects.equals(f.name_, "READ_AS_COLORS")){
+                } else if (Objects.equals(f.name_, "READ_AS_COLORS")) {
                     BF2Frame frame = new BF2Frame();
-                    //frame.print_as_colors(mainBoard);
+                    frame.print_as_colors();
                     frame.pack();
                     frame.setVisible(true);
                 }
             }
         }
-
         return boardCopy[pointerYCopy][pointerXCopy].getValue_();
     }
 }

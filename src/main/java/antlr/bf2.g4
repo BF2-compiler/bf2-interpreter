@@ -20,11 +20,15 @@ command
     ;
 
 funcDef
-    : 'func' ':' VARNAME EOL? '{' (line? EOL)+ '}'
+    : 'func' ':' VARNAME EOL? funcBlock
     ;
     
 funcCall
     : VARNAME
+    ;
+
+funcBlock
+    : '{' command+ '}'
     ;
     
 loop
@@ -37,7 +41,7 @@ block
     ;
 
 ifStatement
-    : 'if' '(' boolStatement ')' block
+    : 'if' '(' boolStatement ')' EOL* block EOL* ('elif' '(' boolStatement ')' EOL* block)* EOL* ('else' EOL* block)?
     ;
 
 boolStatement

@@ -1,9 +1,20 @@
-package bf2;
+package listener;
 
-public class Board {
+import bf2.Cell;
+
+import java.util.ArrayList;
+
+
+public class ListenerBoard {
     public static int SIZE_X, SIZE_Y;
     public static Cell[][] mainBoard = null;
     public static int pointerX = 0, pointerY = 0;
+
+    private static ArrayList<Integer> pXLastPositions = new ArrayList<Integer>();
+    private static ArrayList<Integer> pYLastPositions = new ArrayList<Integer>();
+
+    public static boolean allowPointersChange = true;
+
     public static void setInitialBoard(int size_x, int size_y)
     {
         SIZE_X = size_x;
@@ -28,15 +39,24 @@ public class Board {
     }
 
     public static void updatePointerX(int change){
-        pointerX += change;
+        if (allowPointersChange)
+            pointerX += change;
     }
     public static void updatePointerY(int change) {
-        pointerY += change;
+        if (allowPointersChange)
+            pointerY += change;
     }
 
-//    public int[][] boardToInt(){
-//        int[][] returnArray = new int[SIZE_X][SIZE_Y];
-//        for (int i )
-//    }
+    public static void savePointerPosition(){
+        pXLastPositions.add(pointerX);
+        pYLastPositions.add(pointerY);
+    }
+
+    public static void loadLastPointerPosition(){
+        if (pXLastPositions.size() > 0)
+            pointerX = pXLastPositions.remove(pXLastPositions.size() - 1);
+        if (pYLastPositions.size() > 0)
+            pointerY = pYLastPositions.remove(pYLastPositions.size() - 1);
+    }
 
 }

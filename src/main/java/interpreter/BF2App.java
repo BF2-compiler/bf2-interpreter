@@ -11,6 +11,9 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import java.io.IOException;
 
+import listener.AntlrListener;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
 public class BF2App {
     public static void main(String[] args) {
         if(args.length != 1)
@@ -27,6 +30,12 @@ public class BF2App {
             try
             {
                 ParseTree antlrAST = parser.prog();
+                // Create a listener for errors and reinitialization checking
+                AntlrListener listener = new AntlrListener();
+
+                ParseTreeWalker firstWalker = new ParseTreeWalker();
+                firstWalker.walk(listener, antlrAST);
+
                 // Create a visitor for converting the parse tree into lines expressions objects
                 AntlrToProgram progVisitor = new AntlrToProgram();
                 progVisitor.visit(antlrAST);
@@ -37,6 +46,13 @@ public class BF2App {
                     }
                     System.out.println();
                 }
+                if (!progVisitor.semanticErrors.isEmpty())
+                {
+                    for ( String error : progVisitor.semanticErrors) {
+                        System.out.println(error);
+                    }
+                }
+
             }
             catch (Exception e)
             {

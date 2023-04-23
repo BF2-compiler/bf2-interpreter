@@ -8,7 +8,10 @@ import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 
-
+/**
+ * A class to represent color panel for further display in the main frame
+ * @see JPanel
+ */
 public class BF2ColorPanel extends JPanel {
 
     Color color;
