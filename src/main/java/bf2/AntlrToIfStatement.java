@@ -9,6 +9,7 @@ public class AntlrToIfStatement extends bf2BaseVisitor<IfStatement>{
         AntlrToBoolStatement boolStatement = new AntlrToBoolStatement();
         AntlrToBlock commandBlock = new AntlrToBlock();
         BoolStatement statement = boolStatement.visit(ctx.getChild(2));
+        //TODO dorobic elif i else
         return new IfStatement(statement.satisfied, commandBlock.visit(ctx.getChild(4)));
     }
 }

@@ -1,8 +1,5 @@
-20, 10
-=10 > =5
-v< =100
->v =50
-<^^
-if({v}. >? {vv>}.){>>>>=65}
+10,10
+func:FUNKCJA{>>}
 
-READ_AS_COLORS
+func:FUNKCJA
+{^^}
