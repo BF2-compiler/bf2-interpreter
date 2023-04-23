@@ -3,9 +3,8 @@ package bf2;
 import GUI.BF2Frame;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class AntlrToLine extends bf2BaseVisitor<Line>{
     @Override
@@ -16,10 +15,13 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
             Command com = commandVisitor.visit(ctx.getChild(i));
 
             // Adding commands from ifStatement block to command list of a given line
-            if (com instanceof IfStatement) {
-                if (((IfStatement) com).satisfied_) {
-                    for (Command blockCommand : ((IfStatement) com).blockOfCommands.commands_)
-                        line.addCommand(blockCommand);
+            if (com instanceof IfStatement statement) {
+                for (Pair<Block, Boolean> blockBoolean : statement.blocks) {
+                    if (blockBoolean.getValue()){
+                        for (Command blockCommand : blockBoolean.getKey().commands_)
+                            line.addCommand(blockCommand);
+                        break;
+                    }
                 }
             } else
                 line.addCommand(com);

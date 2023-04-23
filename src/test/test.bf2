@@ -1,5 +1,4 @@
 10,10
-func:FUNKCJA{>>}
-
-func:FUNKCJA
-{^^}
+if(0){>=1}
+elif(0){>>=2}
+else{>>>=3}

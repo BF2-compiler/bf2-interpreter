@@ -47,7 +47,8 @@ ifStatement
 boolStatement
     : varGetter comparisonOperator varGetter        # VariableOperatorVariable
     | varGetter                                     # VariableBool
-    | boolStatement logicalOperator boolStatement   # BoolOperatorBool
+    | boolStatement '&&' boolStatement              # BoolAndBool
+    | boolStatement '||' boolStatement              # BoolOrBool
     | '(' boolStatement ')'                         # ParenthesisBool
     ;
     
@@ -68,11 +69,6 @@ expression
     | expression '/' expression     # Division
     | '(' expression ')'            # ParenthesisExpression
     | varGetter                     # VariableExpression
-    ;
-    
-logicalOperator
-    : '&&'          # LogicalAnd
-    | '||'          # LogicalOr
     ;
 
 comparisonOperator
