@@ -22,8 +22,22 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
                     for (Command blockCommand : ((IfStatement) com).blockOfCommands.commands_)
                         line.addCommand(blockCommand);
                 }
-            } else
+            } else if (com instanceof Loop) {
+                while (((Loop) com).satisfied_ ) {
+                    for (Command blockCommand : ((Loop) com).blockOfCommands.commands_)
+                        line.addCommand(blockCommand);
+                }
+                if (((Loop) com).range_ != 0) {
+                    for ( int id=0; id<((Loop) com).range_; id++)
+                    {
+                        for (Command blockCommand : ((Loop) com).blockOfCommands.commands_)
+                            line.addCommand(blockCommand);
+                    }
+                }
+            } else {
                 line.addCommand(com);
+            }
+
         }
 
         for (Command com : line.commandList) {
