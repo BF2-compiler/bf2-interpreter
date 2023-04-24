@@ -22,19 +22,7 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
                     for (Command blockCommand : ((IfStatement) com).blockOfCommands.commands_)
                         line.addCommand(blockCommand);
                 }
-            } else if (com instanceof Loop) {
-                while (((Loop) com).satisfied_ ) {
-                    for (Command blockCommand : ((Loop) com).blockOfCommands.commands_)
-                        line.addCommand(blockCommand);
-                }
-                if (((Loop) com).range_ != 0) {
-                    for ( int id=0; id<((Loop) com).range_; id++)
-                    {
-                        for (Command blockCommand : ((Loop) com).blockOfCommands.commands_)
-                            line.addCommand(blockCommand);
-                    }
-                }
-            } else {
+            }  else {
                 line.addCommand(com);
             }
 
@@ -63,6 +51,19 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
                     frame.print_as_colors();
                     frame.pack();
                     frame.setVisible(true);
+                } else if (com instanceof Loop) {
+                    if (((Loop) com).satisfied_ ) {
+                        for (Command blockCommand : ((Loop) com).blockOfCommands.commands_)
+                            line.addCommand(blockCommand);
+                        line.addCommand(com);
+                    }
+                    if (((Loop) com).range_ != 0) {
+                        for ( int id=0; id<((Loop) com).range_; id++)
+                        {
+                            for (Command blockCommand : ((Loop) com).blockOfCommands.commands_)
+                                line.addCommand(blockCommand);
+                        }
+                    }
                 }
             }
         }
