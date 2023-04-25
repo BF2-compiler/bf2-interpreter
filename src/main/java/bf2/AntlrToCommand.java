@@ -7,7 +7,8 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
     @Override
     public Command visitCommandLoop(bf2Parser.CommandLoopContext ctx) {
-        return super.visitCommandLoop(ctx);
+        AntlrToLoop antlrToLoop = new AntlrToLoop();
+        return antlrToLoop.visit(ctx.getChild(0));
     }
 
     @Override
