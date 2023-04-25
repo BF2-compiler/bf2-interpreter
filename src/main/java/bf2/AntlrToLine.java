@@ -14,7 +14,7 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
             for (Pair<Block, Boolean> blockBoolean : statement.blocks) {
                 if (blockBoolean.getValue()) {
                     for (Command blockCommand : blockBoolean.getKey().commands_)
-                        evaluateCommand(command);
+                        evaluateCommand(blockCommand);
                     break;
                 }
             }
