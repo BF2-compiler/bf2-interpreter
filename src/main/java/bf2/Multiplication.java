@@ -5,7 +5,7 @@ public class Multiplication extends Command {
     Block right;
     
     public Multiplication(Block left, Block right) throws Exception {
-        
+
         if (left.getValueFromCommands() < 0 ^ right.getValueFromCommands() < 0) {
             StringBuilder s = new StringBuilder("Multiplication produced negative output:\t");
             s.append(left.getValueFromCommands());

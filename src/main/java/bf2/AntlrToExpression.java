@@ -9,17 +9,29 @@ import java.beans.Expression;
 public class AntlrToExpression extends bf2BaseVisitor<Expression> {
     @Override
     public Expression visitSubstraction(bf2Parser.SubstractionContext ctx) {
-        return super.visitSubstraction(ctx);
+        AntlrToVarGetter x = new AntlrToVarGetter();
+
+        VarGetter l = x.visit(ctx.getChild(0).getChild(0));
+        
+        var r = x.visit(ctx.getChild(2));
+
+        
     }
 
     @Override
     public Expression visitAddition(bf2Parser.AdditionContext ctx) {
-        return super.visitAddition(ctx);
+        AntlrToExpression x = new AntlrToExpression();
+
+        return x.visitAddition(ctx);
     }
 
     @Override
     public Expression visitMultiplication(bf2Parser.MultiplicationContext ctx) {
-        return super.visitMultiplication(ctx);
+        AntlrToExpression x = new AntlrToExpression();
+
+        var l = x.visit(ctx.getChild(0));
+        var r = x.visit(ctx.getChild(2));
+
     }
 
     @Override
@@ -34,6 +46,11 @@ public class AntlrToExpression extends bf2BaseVisitor<Expression> {
 
     @Override
     public Expression visitDivision(bf2Parser.DivisionContext ctx) {
-        return super.visitDivision(ctx);
+        AntlrToExpression x = new AntlrToExpression();
+
+        var r = x.visit(ctx.getChild(0));
+        var l = x.visit(ctx.getChild(2));
+
+        return new Expression(ctx, x, "visitDivision");
     }
 }

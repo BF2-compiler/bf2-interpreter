@@ -1,5 +1,7 @@
 package bf2;
 
+import java.beans.Expression;
+
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
@@ -31,7 +33,9 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
     @Override
     public Command visitCommandExpression(bf2Parser.CommandExpressionContext ctx) {
-        return super.visitCommandExpression(ctx);
+        AntlrToExpression x = new AntlrToExpression();
+
+        return x.visit(ctx.getChild(0));
     }
 
     @Override
