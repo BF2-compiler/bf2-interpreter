@@ -20,14 +20,6 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
                 {
                     evaluateCommand(blockCommand);
                 }
-                for (Cell[] ints : Board.mainBoard) {
-                    for (Cell int_ : ints) {
-                        System.out.print(int_.getValue_() + "\t");
-                    }
-                System.out.println();
-                }
-                System.out.println("\n\n");
-                evaluateCommand(command);
             }
             if (((Loop) command).range_ != 0) {
                 for ( int id=0; id<((Loop) command).range_; id++)
@@ -69,7 +61,18 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
         AntlrToCommand commandVisitor = new AntlrToCommand();
         for (int i=0; i < ctx.getChildCount(); i++) {
             Command com = commandVisitor.visit(ctx.getChild(i));
-            evaluateCommand(com);
+            if ( com instanceof Loop && ((Loop) com).satisfied_ )
+            {
+                boolean state = ((Loop) com).satisfied_;
+                while (state) {
+                    evaluateCommand(com);
+                    com = commandVisitor.visit(ctx.getChild(i));
+                    state = ((Loop) com).satisfied_;
+                }
+            } else
+            {
+                evaluateCommand(com);
+            }
         }
         return line;
     }
