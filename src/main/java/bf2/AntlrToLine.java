@@ -15,14 +15,8 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
             Command com = commandVisitor.visit(ctx.getChild(i));
 
             // Adding commands from ifStatement block to command list of a given line
-            if (com instanceof IfStatement) {
-                if (((IfStatement) com).satisfied_) {
-                    for (Command blockCommand : ((IfStatement) com).blockOfCommands.commands_)
-                        line.addCommand(blockCommand);
-                }
-            }  else {
-                line.addCommand(com);
-            }
+
+            line.addCommand(com);
         }
 
         List<Command> tempList = line.commandList;
@@ -48,11 +42,34 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
                 if (((Loop) com).range_ != 0) {
                     for ( int id=0; id<((Loop) com).range_; id++)
                     {
+                        int numberOfIterations = 0;
                         for (Command blockCommand : ((Loop) com).blockOfCommands.commands_)
                         {
                             commandListIterator.add(blockCommand);
+                            numberOfIterations += 1;
+                        }
+                        for ( int j=0; j<numberOfIterations; j++)
+                        {
                             commandListIterator.previous();
                         }
+
+                    }
+                }
+            } else if (com instanceof IfStatement) {
+                if (((IfStatement) com).satisfied_) {
+                    System.out.println(((IfStatement) com).satisfied_);
+                    System.out.println();
+                    System.out.println("JEEEEEEJ");
+                    System.out.println();
+                    int numberOfIterations = 0;
+                    for (Command blockCommand : ((IfStatement) com).blockOfCommands.commands_)
+                    {
+                        commandListIterator.add(blockCommand);
+                        numberOfIterations += 1;
+                    }
+                    for ( int j=0; j<numberOfIterations; j++)
+                    {
+                        commandListIterator.previous();
                     }
                 }
             } else if (com instanceof Function f){
