@@ -1,18 +1,18 @@
 package bf2;
 
-public class Multiplication extends Command {
-    Block left;
-    Block right;
+public class Multiplication extends Expression {
+    int left;
+    int right;
     
-    public Multiplication(Block left, Block right) throws Exception {
+    public Multiplication(int left, int right) throws RuntimeException {
 
-        if (left.getValueFromCommands() < 0 ^ right.getValueFromCommands() < 0) {
+        if (left < 0 ^ right < 0) {
             StringBuilder s = new StringBuilder("Multiplication produced negative output:\t");
-            s.append(left.getValueFromCommands());
+            s.append(left);
             s.append(" * ");
-            s.append(right.getValueFromCommands());
+            s.append(right);
 
-            throw new Exception(s.toString(), null);
+            throw new RuntimeException(s.toString(), null);
         }
 
         this.left = left;
@@ -21,6 +21,6 @@ public class Multiplication extends Command {
 
     @Override    
     public String toString() {
-        return this.left.toString() + " * " + this.right.toString();
+        return Integer.toString(left) + " * " + Integer.toString(right);
     }
 }

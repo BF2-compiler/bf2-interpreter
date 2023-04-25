@@ -1,7 +1,5 @@
 package bf2;
 
-import java.beans.Expression;
-
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
@@ -48,8 +46,5 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
         AntlrToVarGetter varGetter = new AntlrToVarGetter();
         return varGetter.visit(ctx.getChild(1));
     }
-
-
-
 
 }

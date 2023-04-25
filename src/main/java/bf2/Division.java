@@ -1,19 +1,19 @@
 package bf2;
 
 
-public class Division extends Command {
-    Block left;
-    Block right;
+public class Division extends Expression {
+    int left;
+    int right;
 
-    public Division(Block left, Block right) throws Exception {
+    public Division(int left, int right) throws RuntimeException {
 
-        if (right.getValueFromCommands() == 0) {
+        if (right == 0) {
             StringBuilder s = new StringBuilder("Division by 0 occured:\t");
-            s.append(left.getValueFromCommands());
+            s.append(left);
             s.append(" / ");
-            s.append(right.getValueFromCommands());
+            s.append(right);
 
-            throw new Exception(s.toString(), null);
+            throw new RuntimeException(s.toString(), null);
         }
         
         this.left = left;
@@ -22,6 +22,6 @@ public class Division extends Command {
 
     @Override 
     public String toString() {
-        return this.left.toString() + " / " + this.right.toString();
+        return Integer.toString(left) + " / " + Integer.toString(right);
     }
 }

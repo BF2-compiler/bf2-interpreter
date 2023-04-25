@@ -3,35 +3,36 @@ package bf2;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
-import java.beans.Expression;
-
 
 public class AntlrToExpression extends bf2BaseVisitor<Expression> {
     @Override
     public Expression visitSubstraction(bf2Parser.SubstractionContext ctx) {
         AntlrToVarGetter x = new AntlrToVarGetter();
 
-        VarGetter l = x.visit(ctx.getChild(0).getChild(0));
-        
-        var r = x.visit(ctx.getChild(2));
+        Number l = (Number) x.visit(ctx.getChild(0).getChild(0));
+        Number r = (Number) x.visit(ctx.getChild(2).getChild(0));
 
-        
+        return new Subtraction(l.value_, r.value_);
     }
 
     @Override
     public Expression visitAddition(bf2Parser.AdditionContext ctx) {
-        AntlrToExpression x = new AntlrToExpression();
+        AntlrToVarGetter x = new AntlrToVarGetter();
 
-        return x.visitAddition(ctx);
+        Number l = (Number) x.visit(ctx.getChild(0).getChild(0));
+        Number r = (Number) x.visit(ctx.getChild(2).getChild(0));
+
+        return new Addition(l.value_, r.value_);
     }
 
     @Override
     public Expression visitMultiplication(bf2Parser.MultiplicationContext ctx) {
-        AntlrToExpression x = new AntlrToExpression();
+        AntlrToVarGetter x = new AntlrToVarGetter();
 
-        var l = x.visit(ctx.getChild(0));
-        var r = x.visit(ctx.getChild(2));
+        Number l = (Number) x.visit(ctx.getChild(0).getChild(0));
+        Number r = (Number) x.visit(ctx.getChild(2).getChild(0));
 
+        return new Multiplication(l.value_, r.value_);
     }
 
     @Override
@@ -46,11 +47,11 @@ public class AntlrToExpression extends bf2BaseVisitor<Expression> {
 
     @Override
     public Expression visitDivision(bf2Parser.DivisionContext ctx) {
-        AntlrToExpression x = new AntlrToExpression();
+        AntlrToVarGetter x = new AntlrToVarGetter();
 
-        var r = x.visit(ctx.getChild(0));
-        var l = x.visit(ctx.getChild(2));
+        Number l = (Number) x.visit(ctx.getChild(0).getChild(0));
+        Number r = (Number) x.visit(ctx.getChild(2).getChild(0));
 
-        return new Expression(ctx, x, "visitDivision");
+        return new Division(l.value_, r.value_);
     }
 }
