@@ -329,18 +329,6 @@ public class bf2BaseListener implements bf2Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAddition(bf2Parser.AdditionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAddition(bf2Parser.AdditionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterMultiplication(bf2Parser.MultiplicationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -348,6 +336,18 @@ public class bf2BaseListener implements bf2Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMultiplication(bf2Parser.MultiplicationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAddition(bf2Parser.AdditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAddition(bf2Parser.AdditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

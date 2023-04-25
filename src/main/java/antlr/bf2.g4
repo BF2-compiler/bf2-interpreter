@@ -62,11 +62,11 @@ varGetter
     ;
 
 expression
-    : expression '+' expression     # Addition
-    | expression '-' expression     # Substraction
+    : '(' expression ')'            # ParenthesisExpression
     | expression '*' expression     # Multiplication
     | expression '/' expression     # Division
-    | '(' expression ')'            # ParenthesisExpression
+    | expression '+' expression     # Addition
+    | expression '-' expression     # Substraction
     | varGetter                     # VariableExpression
     ;
     

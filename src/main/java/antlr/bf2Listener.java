@@ -309,18 +309,6 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitSubstraction(bf2Parser.SubstractionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code Addition}
-	 * labeled alternative in {@link bf2Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAddition(bf2Parser.AdditionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Addition}
-	 * labeled alternative in {@link bf2Parser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAddition(bf2Parser.AdditionContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code Multiplication}
 	 * labeled alternative in {@link bf2Parser#expression}.
 	 * @param ctx the parse tree
@@ -332,6 +320,18 @@ public interface bf2Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMultiplication(bf2Parser.MultiplicationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Addition}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddition(bf2Parser.AdditionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Addition}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddition(bf2Parser.AdditionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code ParenthesisExpression}
 	 * labeled alternative in {@link bf2Parser#expression}.

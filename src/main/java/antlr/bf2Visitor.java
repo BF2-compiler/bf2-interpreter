@@ -188,19 +188,19 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSubstraction(bf2Parser.SubstractionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code Addition}
-	 * labeled alternative in {@link bf2Parser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAddition(bf2Parser.AdditionContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code Multiplication}
 	 * labeled alternative in {@link bf2Parser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMultiplication(bf2Parser.MultiplicationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Addition}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddition(bf2Parser.AdditionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ParenthesisExpression}
 	 * labeled alternative in {@link bf2Parser#expression}.
