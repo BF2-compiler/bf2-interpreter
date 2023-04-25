@@ -23,7 +23,15 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
         ListIterator<Command> commandListIterator = tempList.listIterator();
         while ( commandListIterator.hasNext() ) {
             System.out.println(line.commandList);
+            for (Cell[] ints : Board.mainBoard) {
+                for (Cell int_ : ints) {
+                    System.out.print(int_.getValue_() + "\t");
+                }
+                System.out.println();
+            }
             Command com = commandListIterator.next();
+
+
             if (com instanceof Number tempNum) {
                 Board.updateBoard(tempNum.value_);
             } else if (com instanceof DirectionalMove) {
@@ -56,11 +64,12 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
                     }
                 }
             } else if (com instanceof IfStatement) {
+                System.out.println();
+                System.out.println("JEEEEEEJ");
+                System.out.println();
                 if (((IfStatement) com).satisfied_) {
                     System.out.println(((IfStatement) com).satisfied_);
-                    System.out.println();
-                    System.out.println("JEEEEEEJ");
-                    System.out.println();
+
                     int numberOfIterations = 0;
                     for (Command blockCommand : ((IfStatement) com).blockOfCommands.commands_)
                     {
