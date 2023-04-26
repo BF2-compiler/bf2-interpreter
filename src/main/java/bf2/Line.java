@@ -6,7 +6,7 @@ import java.util.List;
 public class Line {
     List<Command> commandList;
     public Line(){
-        commandList = new ArrayList<Command>();
+        commandList = new ArrayList<>();
     }
     public void addCommand(Command command){
         commandList.add(command);

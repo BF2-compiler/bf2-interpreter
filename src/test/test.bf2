@@ -1,5 +1,4 @@
 10,10
-func:FUNKCJA{>>}
-
-func:FUNKCJA
-{^^}
+>>>>=6
+v<<<<
+do{=4>}if({^}. !=? 6)

@@ -19,7 +19,7 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
 
         Board.setInitialBoard(sizeX, sizeY);
 
-        Program prog  = new Program();
+        Program program  = new Program();
 
         AntlrToLine lineVisitor = new AntlrToLine();
 
@@ -27,7 +27,7 @@ public class AntlrToProgram extends bf2BaseVisitor<Program>{
         {
             if (i == ctx.getChildCount() - 1)
             {
-                /* last line of the start symbol prog is EOF */
+                /* last line of the start symbol program is EOF */
             }
             else {
                 Line l = lineVisitor.visit(ctx.getChild(i));

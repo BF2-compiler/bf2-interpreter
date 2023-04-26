@@ -6,5 +6,5 @@ public enum ComparisonOperator {
     LESS_EQUAL,
     GREATER_EQUAL,
     EQUAL,
-    NOT_EQUAL;
+    NOT_EQUAL
 }
