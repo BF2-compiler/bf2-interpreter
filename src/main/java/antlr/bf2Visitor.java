@@ -181,33 +181,19 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitGet(bf2Parser.GetContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code Substraction}
-	 * labeled alternative in {@link bf2Parser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSubstraction(bf2Parser.SubstractionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code Multiplication}
-	 * labeled alternative in {@link bf2Parser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMultiplication(bf2Parser.MultiplicationContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code Addition}
-	 * labeled alternative in {@link bf2Parser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAddition(bf2Parser.AdditionContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code ParenthesisExpression}
 	 * labeled alternative in {@link bf2Parser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitParenthesisExpression(bf2Parser.ParenthesisExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code AdditionSubstraction}
+	 * labeled alternative in {@link bf2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAdditionSubstraction(bf2Parser.AdditionSubstractionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code VariableExpression}
 	 * labeled alternative in {@link bf2Parser#expression}.
@@ -216,12 +202,12 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariableExpression(bf2Parser.VariableExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code Division}
+	 * Visit a parse tree produced by the {@code MultiplicationDivision}
 	 * labeled alternative in {@link bf2Parser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDivision(bf2Parser.DivisionContext ctx);
+	T visitMultiplicationDivision(bf2Parser.MultiplicationDivisionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code LogicalAnd}
 	 * labeled alternative in {@link bf2Parser#logicalOperator}.

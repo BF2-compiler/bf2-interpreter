@@ -3,36 +3,44 @@ package bf2;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
+import java.util.Objects;
+
 
 public class AntlrToExpression extends bf2BaseVisitor<Expression> {
+
     @Override
-    public Expression visitSubstraction(bf2Parser.SubstractionContext ctx) {
+    public Expression visitAdditionSubstraction(bf2Parser.AdditionSubstractionContext ctx) {
         AntlrToExpression x = new AntlrToExpression();
 
         Number l = (Number) x.visit(ctx.getChild(0));
         Number r = (Number) x.visit(ctx.getChild(2));
 
-        return new Number(l.value_ - r.value_);
+        String character = ctx.getChild(1).getText();
+        if (Objects.equals(character, "+")){
+            return new Number(l.value_ + r.value_);
+        }
+        else if (Objects.equals(character, "-")){
+            return new Number(l.value_ - r.value_);
+        }
+        else throw new RuntimeException("Invalid operator");
     }
 
     @Override
-    public Expression visitAddition(bf2Parser.AdditionContext ctx) {
+    public Expression visitMultiplicationDivision(bf2Parser.MultiplicationDivisionContext ctx) {
         AntlrToExpression x = new AntlrToExpression();
 
         Number l = (Number) x.visit(ctx.getChild(0));
         Number r = (Number) x.visit(ctx.getChild(2));
 
-        return new Number(l.value_ + r.value_);
-    }
-
-    @Override
-    public Expression visitMultiplication(bf2Parser.MultiplicationContext ctx) {
-        AntlrToExpression x = new AntlrToExpression();
-
-        Number l = (Number) x.visit(ctx.getChild(0));
-        Number r = (Number) x.visit(ctx.getChild(2));
-
-        return new Number(l.value_ * r.value_);
+        String character = ctx.getChild(1).getText();
+        if (Objects.equals(character, "*")){
+            return new Number(l.value_ * r.value_);
+        }
+        else if (Objects.equals(character, "/")){
+            if (r.value_ == 0) throw new RuntimeException("Division by 0");
+            return new Number(l.value_ / r.value_);
+        }
+        else throw new RuntimeException("Invalid operator");
     }
 
     @Override
@@ -46,22 +54,6 @@ public class AntlrToExpression extends bf2BaseVisitor<Expression> {
     public Expression visitVariableExpression(bf2Parser.VariableExpressionContext ctx) {
         AntlrToExpression varGetterVisitor = new AntlrToExpression();
         return varGetterVisitor.visit(ctx.getChild(0));
-    }
-
-    @Override
-    public Expression visitDivision(bf2Parser.DivisionContext ctx) {
-        AntlrToExpression x = new AntlrToExpression();
-
-        Number l = (Number) x.visit(ctx.getChild(0));
-        Number r = (Number) x.visit(ctx.getChild(2));
-
-        if (r.value_ == 0) {
-            throw new RuntimeException("Division by 0. Line: " +
-                    ctx.start.getLine() + " at: " +
-                    ctx.start.getCharPositionInLine());
-        }
-
-        return new Number(l.value_ / r.value_);
     }
 
     @Override

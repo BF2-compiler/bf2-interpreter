@@ -206,15 +206,16 @@ public class AntlrListener extends bf2BaseListener{
         super.exitVariableOperatorVariable(ctx);
     }
 
-    @Override
-    public void enterBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx) {
-        super.enterBoolOperatorBool(ctx);
-    }
+//    @Override
+//    public void enterBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx) {
+//        super.enterBoolOperatorBool(ctx);
+//    }
 
-    @Override
-    public void exitBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx) {
-        super.exitBoolOperatorBool(ctx);
-    }
+//    @Override
+//    public void exitBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx) {
+//
+//        super.exitBoolOperatorBool(ctx);
+//    }
 
     @Override
     public void enterAssign(bf2Parser.AssignContext ctx) {
@@ -266,35 +267,35 @@ public class AntlrListener extends bf2BaseListener{
         super.exitGet(ctx);
     }
 
-    @Override
-    public void enterSubstraction(bf2Parser.SubstractionContext ctx) {
-        super.enterSubstraction(ctx);
-    }
-
-    @Override
-    public void exitSubstraction(bf2Parser.SubstractionContext ctx) {
-        super.exitSubstraction(ctx);
-    }
-
-    @Override
-    public void enterAddition(bf2Parser.AdditionContext ctx) {
-        super.enterAddition(ctx);
-    }
-
-    @Override
-    public void exitAddition(bf2Parser.AdditionContext ctx) {
-        super.exitAddition(ctx);
-    }
-
-    @Override
-    public void enterMultiplication(bf2Parser.MultiplicationContext ctx) {
-        super.enterMultiplication(ctx);
-    }
-
-    @Override
-    public void exitMultiplication(bf2Parser.MultiplicationContext ctx) {
-        super.exitMultiplication(ctx);
-    }
+//    @Override
+//    public void enterSubstraction(bf2Parser.SubstractionContext ctx) {
+//        super.enterSubstraction(ctx);
+//    }
+//
+//    @Override
+//    public void exitSubstraction(bf2Parser.SubstractionContext ctx) {
+//        super.exitSubstraction(ctx);
+//    }
+//
+//    @Override
+//    public void enterAddition(bf2Parser.AdditionContext ctx) {
+//        super.enterAddition(ctx);
+//    }
+//
+//    @Override
+//    public void exitAddition(bf2Parser.AdditionContext ctx) {
+//        super.exitAddition(ctx);
+//    }
+//
+//    @Override
+//    public void enterMultiplication(bf2Parser.MultiplicationContext ctx) {
+//        super.enterMultiplication(ctx);
+//    }
+//
+//    @Override
+//    public void exitMultiplication(bf2Parser.MultiplicationContext ctx) {
+//        super.exitMultiplication(ctx);
+//    }
 
     @Override
     public void enterParenthesisExpression(bf2Parser.ParenthesisExpressionContext ctx) {
@@ -316,35 +317,35 @@ public class AntlrListener extends bf2BaseListener{
         super.exitVariableExpression(ctx);
     }
 
-    @Override
-    public void enterDivision(bf2Parser.DivisionContext ctx) {
-        super.enterDivision(ctx);
-    }
-
-    @Override
-    public void exitDivision(bf2Parser.DivisionContext ctx) {
-        super.exitDivision(ctx);
-    }
-
-    @Override
-    public void enterLogicalAnd(bf2Parser.LogicalAndContext ctx) {
-        super.enterLogicalAnd(ctx);
-    }
-
-    @Override
-    public void exitLogicalAnd(bf2Parser.LogicalAndContext ctx) {
-        super.exitLogicalAnd(ctx);
-    }
-
-    @Override
-    public void enterLogicalOr(bf2Parser.LogicalOrContext ctx) {
-        super.enterLogicalOr(ctx);
-    }
-
-    @Override
-    public void exitLogicalOr(bf2Parser.LogicalOrContext ctx) {
-        super.exitLogicalOr(ctx);
-    }
+//    @Override
+//    public void enterDivision(bf2Parser.DivisionContext ctx) {
+//        super.enterDivision(ctx);
+//    }
+//
+//    @Override
+//    public void exitDivision(bf2Parser.DivisionContext ctx) {
+//        super.exitDivision(ctx);
+//    }
+//
+//    @Override
+//    public void enterLogicalAnd(bf2Parser.LogicalAndContext ctx) {
+//        super.enterLogicalAnd(ctx);
+//    }
+//
+//    @Override
+//    public void exitLogicalAnd(bf2Parser.LogicalAndContext ctx) {
+//        super.exitLogicalAnd(ctx);
+//    }
+//
+//    @Override
+//    public void enterLogicalOr(bf2Parser.LogicalOrContext ctx) {
+//        super.enterLogicalOr(ctx);
+//    }
+//
+//    @Override
+//    public void exitLogicalOr(bf2Parser.LogicalOrContext ctx) {
+//        super.exitLogicalOr(ctx);
+//    }
 
     @Override
     public void enterComparisonLess(bf2Parser.ComparisonLessContext ctx) {
