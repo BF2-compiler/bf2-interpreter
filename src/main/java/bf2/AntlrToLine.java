@@ -3,16 +3,20 @@ package bf2;
 import GUI.BF2Frame;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
-
+import java.util.Objects;
+import org.apache.commons.lang3.tuple.Pair;
 import java.util.*;
 
 public class AntlrToLine extends bf2BaseVisitor<Line>{
 
     public void evaluateCommand(Command command){
-        if (command instanceof IfStatement) {
-            if (((IfStatement) command).satisfied_) {
-                for (Command blockCommand : ((IfStatement) command).blockOfCommands.commands_)
-                    evaluateCommand(blockCommand);
+        if (command instanceof IfStatement statement) {
+            for (Pair<Block, Boolean> blockBoolean : statement.blocks) {
+                if (blockBoolean.getValue()) {
+                    for (Command blockCommand : blockBoolean.getKey().commands_)
+                        evaluateCommand(blockCommand);
+                    break;
+                }
             }
         } else if (command instanceof Loop) {
             if (((Loop) command).satisfied_ ) {
@@ -61,7 +65,7 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
         AntlrToCommand commandVisitor = new AntlrToCommand();
         for (int i=0; i < ctx.getChildCount(); i++) {
             Command com = commandVisitor.visit(ctx.getChild(i));
-            if ( com instanceof Loop && ((Loop) com).satisfied_ )
+            if (com instanceof Loop && ((Loop) com).satisfied_)
             {
                 boolean state = ((Loop) com).satisfied_;
                 while (state) {

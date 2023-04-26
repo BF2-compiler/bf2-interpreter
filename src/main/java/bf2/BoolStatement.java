@@ -1,8 +1,5 @@
 package bf2;
 
-import GUI.BF2Frame;
-import java.util.Objects;
-
 public class BoolStatement{
     public boolean satisfied;
     public BoolStatement(VarGetter variable){
