@@ -52,7 +52,7 @@ boolStatement
     ;
     
 assign
-    : '=' varGetter
+    : '=' expression
     ;
     
 varGetter

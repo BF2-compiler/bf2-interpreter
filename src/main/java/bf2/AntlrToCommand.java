@@ -44,8 +44,8 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
     @Override
     public Command visitAssign(bf2Parser.AssignContext ctx) {
-        AntlrToVarGetter varGetter = new AntlrToVarGetter();
-        return varGetter.visit(ctx.getChild(1));
+        AntlrToExpression expressionVisitor = new AntlrToExpression();
+        return expressionVisitor.visit(ctx.getChild(1));
     }
 
 }
