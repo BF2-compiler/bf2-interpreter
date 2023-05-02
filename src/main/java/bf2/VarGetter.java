@@ -1,5 +1,5 @@
 package bf2;
 
-public class VarGetter extends Command{
+public class VarGetter extends Expression{
 
 }

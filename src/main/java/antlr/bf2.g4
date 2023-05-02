@@ -45,17 +45,16 @@ ifStatement
     ;
 
 boolStatement
-    : varGetter comparisonOperator varGetter        # VariableOperatorVariable
-    | varGetter                                     # VariableBool
-    | boolStatement '&&' boolStatement              # BoolAndBool
-    | boolStatement '||' boolStatement              # BoolOrBool
+    : expression comparisonOperator expression        # VariableOperatorVariable
+    | expression                                     # VariableBool
+    | boolStatement logicalOperator boolStatement   # BoolOperatorBool
     | '(' boolStatement ')'                         # ParenthesisBool
     ;
-    
+
 assign
-    : '=' varGetter
+    : '=' expression
     ;
-    
+
 varGetter
     : NUMBER        # NumberGet
     | block '.'     # BlockGet
@@ -63,12 +62,15 @@ varGetter
     ;
 
 expression
-    : expression '+' expression     # Addition
-    | expression '-' expression     # Substraction
-    | expression '*' expression     # Multiplication
-    | expression '/' expression     # Division
-    | '(' expression ')'            # ParenthesisExpression
-    | varGetter                     # VariableExpression
+    : '(' expression ')'                    # ParenthesisExpression
+    | expression ('*' | '/') expression     # MultiplicationDivision
+    | expression ('+' | '-') expression     # AdditionSubstraction
+    | varGetter                             # VariableExpression
+    ;
+
+logicalOperator
+    : '&&'          # LogicalAnd
+    | '||'          # LogicalOr
     ;
 
 comparisonOperator
