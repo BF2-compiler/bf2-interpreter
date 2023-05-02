@@ -45,8 +45,8 @@ ifStatement
     ;
 
 boolStatement
-    : varGetter comparisonOperator varGetter        # VariableOperatorVariable
-    | varGetter                                     # VariableBool
+    : expression comparisonOperator expression        # VariableOperatorVariable
+    | expression                                     # VariableBool
     | boolStatement logicalOperator boolStatement   # BoolOperatorBool
     | '(' boolStatement ')'                         # ParenthesisBool
     ;

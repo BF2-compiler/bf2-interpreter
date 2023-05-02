@@ -317,35 +317,14 @@ public class AntlrListener extends bf2BaseListener{
         super.exitVariableExpression(ctx);
     }
 
-//    @Override
-//    public void enterDivision(bf2Parser.DivisionContext ctx) {
-//        super.enterDivision(ctx);
-//    }
-//
-//    @Override
-//    public void exitDivision(bf2Parser.DivisionContext ctx) {
-//        super.exitDivision(ctx);
-//    }
-//
-//    @Override
-//    public void enterLogicalAnd(bf2Parser.LogicalAndContext ctx) {
-//        super.enterLogicalAnd(ctx);
-//    }
-//
-//    @Override
-//    public void exitLogicalAnd(bf2Parser.LogicalAndContext ctx) {
-//        super.exitLogicalAnd(ctx);
-//    }
-//
-//    @Override
-//    public void enterLogicalOr(bf2Parser.LogicalOrContext ctx) {
-//        super.enterLogicalOr(ctx);
-//    }
-//
-//    @Override
-//    public void exitLogicalOr(bf2Parser.LogicalOrContext ctx) {
-//        super.exitLogicalOr(ctx);
-//    }
+    @Override
+    public void enterMultiplicationDivision(bf2Parser.MultiplicationDivisionContext ctx) {
+        if (Integer.parseInt(ctx.getChild(2).getText()) == 0){
+            int position = ctx.stop.getCharPositionInLine() - 1;
+            throw new NullDivisionException("Division by 0. Line: " +
+                    ctx.start.getLine() + " at: " + position);
+        }
+    }
 
     @Override
     public void enterComparisonLess(bf2Parser.ComparisonLessContext ctx) {

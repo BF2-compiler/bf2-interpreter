@@ -1,5 +1,6 @@
 package bf2;
 
+import Exceptions.NullDivisionException;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
 
@@ -37,10 +38,12 @@ public class AntlrToExpression extends bf2BaseVisitor<Expression> {
             return new Number(l.value_ * r.value_);
         }
         else if (Objects.equals(character, "/")){
-            if (r.value_ == 0) throw new RuntimeException("Division by 0");
+            int position = ctx.start.getCharPositionInLine() + 1;
+            if (r.value_ == 0) throw new NullDivisionException("Division by 0. Line: " +
+                    ctx.start.getLine() + " at: " + position);
             return new Number(l.value_ / r.value_);
         }
-        else throw new RuntimeException("Invalid operator");
+        else throw new NullDivisionException("Invalid operator");
     }
 
     @Override
@@ -68,7 +71,8 @@ public class AntlrToExpression extends bf2BaseVisitor<Expression> {
         AntlrToBlock visitBlock = new AntlrToBlock();
         Block block = visitBlock.visit(ctx.getChild(0));
         block.isBlockGet_ = true;
-        return block;
+        Number returnNumber = new Number(block.getValueFromCommands());
+        return returnNumber;
     }
 
     @Override
