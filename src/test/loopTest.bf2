@@ -3,10 +3,10 @@
 
 % comment
 
-if(.=?5){v=8}
+if(.=?5){do{>=6}(6)}
+else{do{v=81}(6)}
 
-% comment
+if(.=?5){do{>=6}(6)}
+elif(.=?81){do{>=123}(6)}
 
-do{>=6}(6)
-
-% do{v=2}if(.=?5)
+READ_AS_INT
