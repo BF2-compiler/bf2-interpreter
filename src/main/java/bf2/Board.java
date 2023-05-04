@@ -1,9 +1,15 @@
 package bf2;
 
+import java.util.ArrayList;
+
 public class Board {
     public static int SIZE_X, SIZE_Y;
     public static Cell[][] mainBoard = null;
     public static int pointerX = 0, pointerY = 0;
+
+    private static ArrayList<Integer> pXLastPositions = new ArrayList<>();
+    private static ArrayList<Integer> pYLastPositions = new ArrayList<>();
+    private static ArrayList<Cell[][]> boardLastStates = new ArrayList<>();
     public static void setInitialBoard(int size_x, int size_y)
     {
         SIZE_X = size_x;
@@ -34,9 +40,19 @@ public class Board {
         pointerY += change;
     }
 
-//    public int[][] boardToInt(){
-//        int[][] returnArray = new int[SIZE_X][SIZE_Y];
-//        for (int i )
-//    }
+    public static void saveBoardState(){
+        boardLastStates.add(mainBoard);
+        pXLastPositions.add(pointerX);
+        pYLastPositions.add(pointerY);
+    }
+
+    public static void loadBoardState(){
+        if (boardLastStates.size() > 0)
+            mainBoard = boardLastStates.remove(boardLastStates.size() - 1);
+        if (pXLastPositions.size() > 0)
+            pointerX = pXLastPositions.remove(pXLastPositions.size() - 1);
+        if (pYLastPositions.size() > 0)
+            pointerY = pYLastPositions.remove(pYLastPositions.size() - 1);
+    }
 
 }

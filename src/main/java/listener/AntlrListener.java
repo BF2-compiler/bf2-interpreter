@@ -126,6 +126,7 @@ public class AntlrListener extends bf2BaseListener{
 
     @Override
     public void exitFuncDef(bf2Parser.FuncDefContext ctx) {
+        super.exitFuncDef(ctx);
     }
 
     @Override
@@ -160,10 +161,12 @@ public class AntlrListener extends bf2BaseListener{
 
     @Override
     public void enterBlock(bf2Parser.BlockContext ctx) {
+        super.enterBlock(ctx);
     }
 
     @Override
     public void exitBlock(bf2Parser.BlockContext ctx) {
+        super.exitBlock(ctx);
     }
 
     @Override
@@ -205,18 +208,6 @@ public class AntlrListener extends bf2BaseListener{
     public void exitVariableOperatorVariable(bf2Parser.VariableOperatorVariableContext ctx) {
         super.exitVariableOperatorVariable(ctx);
     }
-
-//    @Override
-//    public void enterBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx) {
-//        super.enterBoolOperatorBool(ctx);
-//    }
-
-//    @Override
-//    public void exitBoolOperatorBool(bf2Parser.BoolOperatorBoolContext ctx) {
-//
-//        super.exitBoolOperatorBool(ctx);
-//    }
-
     @Override
     public void enterAssign(bf2Parser.AssignContext ctx) {
         super.enterAssign(ctx);
