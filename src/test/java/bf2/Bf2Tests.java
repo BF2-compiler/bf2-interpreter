@@ -141,6 +141,29 @@ public class Bf2Tests {
         }
     }
 
+    @Test
+    public void function1Test() {
+        String[] args = {"src/test/resources/function1.bf2"};
+        BF2App.main(args);
+        Cell[][] expectedBoard =
+                {{new Cell(10), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0)},
+                        {new Cell(0), new Cell(0), new Cell(99), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0)},
+                        {new Cell(0), new Cell(0), new Cell(99), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0)},
+                        {new Cell(0), new Cell(0), new Cell(99), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0)},
+                        {new Cell(0), new Cell(0), new Cell(99), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0)},
+                        {new Cell(0), new Cell(0), new Cell(99), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0)},
+                        {new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0)},
+                        {new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0)},
+                        {new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0)},
+                        {new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0), new Cell(0)}};
+
+        for (int i = 0; i < 10; i++){
+            for (int j = 0; j < 10; j++){
+                Assert.assertEquals(expectedBoard[i][j], Board.mainBoard[i][j]);
+            }
+        }
+    }
+
     @Rule
     public ExpectedException exceptionRule = ExpectedException.none();
     @Test(expected = RedefinitionOfFunctionException.class)

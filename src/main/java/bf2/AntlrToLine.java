@@ -38,6 +38,10 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
         } else if (command instanceof DirectionalMove) {
             Board.updatePointerX(((DirectionalMove) command).changeX_);
             Board.updatePointerY(((DirectionalMove) command).changeY_);
+        } else if (command instanceof Block block){
+            for (Command c: block.commands_) {
+                evaluateCommand(c);
+            }
         }
     }
     @Override
@@ -70,13 +74,17 @@ public class AntlrToLine extends bf2BaseVisitor<Line>{
 
     @Override
     public Line visitDefinitionOfFunction(bf2Parser.DefinitionOfFunctionContext ctx) {
+        AntlrToLine lineVisitor = new AntlrToLine();
+        return lineVisitor.visit(ctx.getChild(0));
+    }
+
+    @Override
+    public Line visitFuncDef(bf2Parser.FuncDefContext ctx) {
         AntlrToBlock blockVisitor = new AntlrToBlock();
+
         Block funcBlock = blockVisitor.visit(ctx.getChild(3));
         String funcName = ctx.getChild(2).getText();
         Functions.addFunction(funcName, funcBlock);
-        System.out.println(funcName);
-        return super.visitDefinitionOfFunction(ctx);
+        return super.visitFuncDef(ctx);
     }
-
-
 }

@@ -20,17 +20,13 @@ command
     ;
 
 funcDef
-    : 'func' ':' VARNAME EOL? funcBlock
+    : 'func' ':' VARNAME EOL? block
     ;
     
 funcCall
     : VARNAME
     ;
 
-funcBlock
-    : '{' command+ '}'
-    ;
-    
 loop
     : 'do' block '(' NUMBER ')'                 # DoLoop
     | 'do' block 'if' '(' boolStatement ')'     # ConditionalLoop

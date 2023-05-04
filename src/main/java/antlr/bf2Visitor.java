@@ -94,12 +94,6 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFuncCall(bf2Parser.FuncCallContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link bf2Parser#funcBlock}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFuncBlock(bf2Parser.FuncBlockContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code DoLoop}
 	 * labeled alternative in {@link bf2Parser#loop}.
 	 * @param ctx the parse tree

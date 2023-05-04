@@ -161,11 +161,14 @@ public class AntlrListener extends bf2BaseListener{
 
     @Override
     public void enterBlock(bf2Parser.BlockContext ctx) {
+        //TODO if parent is funcDef ListenerBoard.allowPointersChange = false;
+
         super.enterBlock(ctx);
     }
 
     @Override
     public void exitBlock(bf2Parser.BlockContext ctx) {
+        //TODO if parent is funcDef ListenerBoard.allowPointersChange = true;
         super.exitBlock(ctx);
     }
 
@@ -238,15 +241,15 @@ public class AntlrListener extends bf2BaseListener{
         ListenerBoard.loadLastPointerPosition();
     }
 
-    @Override
-    public void enterFuncBlock(bf2Parser.FuncBlockContext ctx) {
-        ListenerBoard.allowPointersChange = false;
-    }
-
-    @Override
-    public void exitFuncBlock(bf2Parser.FuncBlockContext ctx) {
-        ListenerBoard.allowPointersChange = true;
-    }
+//    @Override
+//    public void enterFuncBlock(bf2Parser.FuncBlockContext ctx) {
+//        ListenerBoard.allowPointersChange = false;
+//    }
+//
+//    @Override
+//    public void exitFuncBlock(bf2Parser.FuncBlockContext ctx) {
+//        ListenerBoard.allowPointersChange = true;
+//    }
 
     @Override
     public void enterGet(bf2Parser.GetContext ctx) {
