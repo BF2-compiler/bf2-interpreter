@@ -1,7 +1,10 @@
 package bf2;
 
+import GUI.BF2Frame;
 import antlr.bf2BaseVisitor;
 import antlr.bf2Parser;
+
+import java.util.Objects;
 
 public class AntlrToCommand extends bf2BaseVisitor<Command>{
 
@@ -20,8 +23,26 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
     @Override
     public Command visitCommandFuncCall(bf2Parser.CommandFuncCallContext ctx) {
         String funcName = ctx.getChild(0).getText();
-
-        return new Function(funcName);
+        if (Objects.equals(funcName, "READ_AS_STRING")) {
+            BF2Frame frame = new BF2Frame();
+            frame.print_as_string();
+            frame.pack();
+            frame.setVisible(true);
+            return null;
+        } else if (Objects.equals(funcName, "READ_AS_INT")) {
+            BF2Frame frame = new BF2Frame();
+            frame.print_as_int();
+            frame.pack();
+            frame.setVisible(true);
+            return null;
+        } else if (Objects.equals(funcName, "READ_AS_COLORS")) {
+            BF2Frame frame = new BF2Frame();
+            frame.print_as_colors();
+            frame.pack();
+            frame.setVisible(true);
+            return null;
+        }
+        return Functions.getBlockFromFunction(funcName);
     }
 
     @Override

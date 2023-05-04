@@ -62,6 +62,7 @@ public class BF2App {
         }
     }
 
+
     private static bf2Parser getParser(String fileName)
     {
         bf2Parser parser;

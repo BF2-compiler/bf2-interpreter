@@ -22,34 +22,12 @@ public class Block extends VarGetter{
         of the last cell where the pointer was set
     */
     public int getValueFromCommands(){
-        Cell[][] boardCopy = Board.mainBoard;
-        int pointerXCopy = Board.pointerX;
-        int pointerYCopy = Board.pointerY;
+        Board.saveBoardState();
         for (Command com : commands_) {
-            if (com instanceof Number tempNum) {
-                boardCopy[pointerYCopy][pointerXCopy] = new Cell(tempNum.value_);
-            } else if (com instanceof DirectionalMove) {
-                pointerXCopy += ((DirectionalMove) com).changeX_;
-                pointerYCopy += ((DirectionalMove) com).changeY_;
-            } else if (com instanceof Function f) {
-                if (Objects.equals(f.name_, "READ_AS_STRING")) {
-                    BF2Frame frame = new BF2Frame();
-                    frame.print_as_string();
-                    frame.pack();
-                    frame.setVisible(true);
-                } else if (Objects.equals(f.name_, "READ_AS_INT")) {
-                    BF2Frame frame = new BF2Frame();
-                    frame.print_as_int();
-                    frame.pack();
-                    frame.setVisible(true);
-                } else if (Objects.equals(f.name_, "READ_AS_COLORS")) {
-                    BF2Frame frame = new BF2Frame();
-                    frame.print_as_colors();
-                    frame.pack();
-                    frame.setVisible(true);
-                }
-            }
+            AntlrToLine.evaluateCommand(com);
         }
-        return boardCopy[pointerYCopy][pointerXCopy].getValue_();
+        int returnValue = Board.getCurrentValue();
+        Board.loadBoardState();
+        return returnValue;
     }
 }

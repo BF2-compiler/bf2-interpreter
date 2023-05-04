@@ -1,5 +1,7 @@
 package bf2;
 
+import java.util.Objects;
+
 public class Cell {
     private int value_;
     private Board boardUp;
@@ -7,6 +9,8 @@ public class Cell {
 
     public Cell(int value){
         this.value_ = value;
+        boardUp = null;
+        boardDown = null;
     }
 
     public int getValue_() {
@@ -28,5 +32,18 @@ public class Cell {
     }
     public void setBoardDown(Board boardDown) {
         this.boardDown = boardDown;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cell cell = (Cell) o;
+        return value_ == cell.value_ && Objects.equals(boardUp, cell.boardUp) && Objects.equals(boardDown, cell.boardDown);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value_, boardUp, boardDown);
     }
 }
