@@ -41,8 +41,9 @@ public class AntlrToCommand extends bf2BaseVisitor<Command>{
             frame.pack();
             frame.setVisible(true);
             return null;
+        } else {
+            return Functions.getBlockFromFunction(funcName);
         }
-        return Functions.getBlockFromFunction(funcName);
     }
 
     @Override

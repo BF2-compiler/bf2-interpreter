@@ -103,13 +103,6 @@ public class bf2BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements bf
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFuncBlock(bf2Parser.FuncBlockContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	@Override public T visitDoLoop(bf2Parser.DoLoopContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

@@ -2,5 +2,4 @@
 func:FUNKCJA{>>=99<<v}
 
 =10v
-%FUNKCJA
 do{FUNKCJA}(5)
