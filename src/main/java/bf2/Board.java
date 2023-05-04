@@ -55,4 +55,14 @@ public class Board {
             pointerY = pYLastPositions.remove(pYLastPositions.size() - 1);
     }
 
+    public static int[][] getIntArray(){
+        int[][] returnArray = new int[SIZE_Y][SIZE_X];
+        for (int i = 0; i < SIZE_Y; i++) {
+            for (int j = 0; j < SIZE_X; j++) {
+                returnArray[i][j] = mainBoard[i][j].getValue_();
+            }
+        }
+        return returnArray;
+    }
+
 }
