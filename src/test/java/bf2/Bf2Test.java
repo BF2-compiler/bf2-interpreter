@@ -2,13 +2,12 @@ package bf2;
 
 import Exceptions.PointerOutOfBoardException;
 import Exceptions.RedefinitionOfFunctionException;
-import antlr.bf2Parser;
 import interpreter.BF2App;
 import listener.ListenerBoard;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
-public class Bf2Tests {
+public class Bf2Test {
 
     @After
     public void clean(){
