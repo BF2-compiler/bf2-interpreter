@@ -205,6 +205,18 @@ public interface bf2Listener extends ParseTreeListener {
 	 */
 	void exitParenthesisBool(bf2Parser.ParenthesisBoolContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code NotOperator}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterNotOperator(bf2Parser.NotOperatorContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code NotOperator}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitNotOperator(bf2Parser.NotOperatorContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code VariableBool}
 	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree

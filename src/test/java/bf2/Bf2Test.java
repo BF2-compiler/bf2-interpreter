@@ -180,4 +180,24 @@ public class Bf2Test {
         String[] args = {"src/test/resources/outOfBoardException.bf2"};
         BF2App.main(args);
     }
+
+    @Test
+    public void notLogicOperatorTest() {
+        String[] args = {"src/test/resources/notOperatorTest.bf2"};
+        BF2App.main(args);
+        Cell[][] expectedBoard =
+                {{new Cell(0)},
+                    {new Cell(222)},
+                    {new Cell(333)},
+                    {new Cell(444)},
+                    {new Cell(555)},
+                    {new Cell(0)},
+                    {new Cell(777)}};
+
+        for (int i = 0; i < expectedBoard.length; i++){
+            for (int j = 0; j < expectedBoard[0].length; j++){
+                Assert.assertEquals(expectedBoard[i][j], Board.mainBoard[i][j]);
+            }
+        }
+    }
 }

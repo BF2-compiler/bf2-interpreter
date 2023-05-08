@@ -66,4 +66,12 @@ public class AntlrToBoolStatement extends bf2BaseVisitor<BoolStatement> {
 
         return returnStatement;
     }
+
+    @Override
+    public BoolStatement visitNotOperator(bf2Parser.NotOperatorContext ctx) {
+        AntlrToBoolStatement antlrToBoolStatementVisitor = new AntlrToBoolStatement();
+        BoolStatement returnStatement = new BoolStatement();
+        returnStatement.satisfied =  !(antlrToBoolStatementVisitor.visit(ctx.getChild(1)).satisfied);
+        return returnStatement;
+    }
 }

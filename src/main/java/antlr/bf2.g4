@@ -41,10 +41,11 @@ ifStatement
     ;
 
 boolStatement
-    : expression comparisonOperator expression        # VariableOperatorVariable
-    | expression                                     # VariableBool
+    : expression comparisonOperator expression      # VariableOperatorVariable
+    | expression                                    # VariableBool
     | boolStatement logicalOperator boolStatement   # BoolOperatorBool
     | '(' boolStatement ')'                         # ParenthesisBool
+    | '~~' boolStatement                            # NotOperator
     ;
 
 assign
