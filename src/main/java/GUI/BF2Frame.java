@@ -1,43 +1,63 @@
 package GUI;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
 import bf2.Board;
 
 import java.awt.GridLayout;
-import java.net.URL;
+import java.awt.Toolkit;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Component;
+
+import javax.swing.Timer;
 
 /**
- * A class to represent a main frame in the GUI
+ * {@summary} A class to represent a main frame in the GUI
+ * @param timer - Timer object used to smoothly change font
+ * @param fontSize - default to 20
+ * @param dimensions - Window dimensions
  */
 public class BF2Frame extends JFrame {
 
-    Dimension dimensions = new Dimension(300, 300);
+    private Timer timer;
+    private int fontSize = 20;
+    public Dimension dimensions = new Dimension(300, 300);
 
     public BF2Frame() {
 
         // Default setup for the frame
         this.setTitle("BF^2");
-
-        // TODO: Fix logo problem
-        // URL iconURL = getClass().getResource("img/brain.png");
-        // ImageIcon icon = new ImageIcon(iconURL);
-        // this.setIconImage(icon.getImage());
-
         this.setMinimumSize(dimensions);
         this.setResizable(true);
 
-        this.getContentPane();
+        // TODO: Fix logo problem
+        Image icon = Toolkit.getDefaultToolkit().getImage("./img/brain.png");
+        this.setIconImage(icon);
 
+        // Listens for window resize
+        this.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                var dim = Math.min(getSize().height, getSize().width);
+                int newFontSize = dim / 20;
+
+                if (newFontSize != fontSize) {
+                    animateFontSizeChange(newFontSize);
+                }
+            }
+        });
+
+        this.getContentPane();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     /**
-    * This function is used to add a number of panels of type {@code BF2ColorPanel} to the main frame
-    * @return
+    * {@summary} This function is used to add a number of panels of type {@code BF2ColorPanel} to the main frame
+    * @return void
     * @see BF2ColorPanel
     */
     public void print_as_colors() {
@@ -59,8 +79,8 @@ public class BF2Frame extends JFrame {
     }
 
     /**
-     * This function is used to add a number of panels of type {@code BF2TextPanel} to the main frame
-     * @return
+     * {@summary} This function is used to add a number of panels of type {@code BF2TextPanel} to the main frame
+     * @return void
      * @see BF2TextPanel
      */
     public void print_as_int() {
@@ -76,8 +96,8 @@ public class BF2Frame extends JFrame {
     }
 
     /**
-     * This function is used to add one {@code JTextArea} to the main frame and set it to be non-editable
-     * @return
+     * {@summary} This function is used to add one {@code JTextArea} to the main frame and set it to be non-editable
+     * @return void
      * @see JTextArea
      */
     public void print_as_string() {
@@ -95,5 +115,43 @@ public class BF2Frame extends JFrame {
                 super.setEditable(false);
             }
         });
+    }
+    /**
+     * {@summary} Function to set new font size in all the components of the frame
+     * @param newFontSize - size of font after resize calculation
+     * @return None
+     */
+    private void animateFontSizeChange(int newFontSize) {
+        
+        if (timer != null && timer.isRunning()) {
+            timer.stop();
+        }
+
+        int diff = newFontSize - fontSize;
+        int sign = Integer.signum(diff);
+        int duration = Math.abs(diff) / 10;
+        final int[] t = { 0 };
+
+        Component[] components = this.getContentPane().getComponents();
+        
+        timer = new Timer(10, e -> {
+            double x = (double)t[0] / duration;
+            double y = 2 * x - x * x;
+            int size = fontSize + (int)(sign * Math.round(diff * y));
+
+            for (Component c : components) {
+                c.setFont(new Font("Monospaced", Font.PLAIN, size));
+            }
+
+            if (t[0]++ >= duration) {
+                timer.stop();
+                fontSize = newFontSize;
+                for (Component c : components) {
+                    c.setFont(new Font("Monospaced", Font.PLAIN, newFontSize));
+                }
+            }
+        });
+
+        timer.start();
     }
 }
