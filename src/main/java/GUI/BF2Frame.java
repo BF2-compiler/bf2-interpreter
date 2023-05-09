@@ -7,8 +7,13 @@ import javax.swing.JTextArea;
 import bf2.Board;
 
 import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.net.URL;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Image;
 
 /**
  * A class to represent a main frame in the GUI
@@ -16,6 +21,9 @@ import java.awt.Dimension;
 public class BF2Frame extends JFrame {
 
     Dimension dimensions = new Dimension(300, 300);
+    Font smallFont = new Font("Monospaced", Font.PLAIN, 12);
+    Font mediumFont = new Font("Monospaced", Font.PLAIN, 16);
+    Font bigFont = new Font("Monospaced", Font.PLAIN, 20);
 
     public BF2Frame() {
 
@@ -23,9 +31,25 @@ public class BF2Frame extends JFrame {
         this.setTitle("BF^2");
 
         // TODO: Fix logo problem
-        // URL iconURL = getClass().getResource("img/brain.png");
-        // ImageIcon icon = new ImageIcon(iconURL);
-        // this.setIconImage(icon.getImage());
+        Image icon = Toolkit.getDefaultToolkit().getImage("img/brain.png");
+        this.setIconImage(icon);
+
+        this.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                // small font
+                if (getSize().width <= 500 && getSize().height <= 500) {
+                    setFont(smallFont);
+                }
+                // medium font
+                if (getSize().width > 500 && getSize().width < 700 && getSize().height > 500 && getSize().height < 700) {
+                    setFont(mediumFont);
+                }
+                // big font
+                if (getSize().height >= 700 && getSize().width >= 700) {
+                    setFont(bigFont);
+                }
+            }
+        });
 
         this.setMinimumSize(dimensions);
         this.setResizable(true);
@@ -37,7 +61,7 @@ public class BF2Frame extends JFrame {
 
     /**
     * This function is used to add a number of panels of type {@code BF2ColorPanel} to the main frame
-    * @return
+    * @return void
     * @see BF2ColorPanel
     */
     public void print_as_colors() {
@@ -60,7 +84,7 @@ public class BF2Frame extends JFrame {
 
     /**
      * This function is used to add a number of panels of type {@code BF2TextPanel} to the main frame
-     * @return
+     * @return void
      * @see BF2TextPanel
      */
     public void print_as_int() {
@@ -77,7 +101,7 @@ public class BF2Frame extends JFrame {
 
     /**
      * This function is used to add one {@code JTextArea} to the main frame and set it to be non-editable
-     * @return
+     * @return void
      * @see JTextArea
      */
     public void print_as_string() {
