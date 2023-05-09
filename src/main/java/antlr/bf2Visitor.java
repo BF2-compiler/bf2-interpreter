@@ -127,6 +127,13 @@ public interface bf2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitParenthesisBool(bf2Parser.ParenthesisBoolContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code NotOperator}
+	 * labeled alternative in {@link bf2Parser#boolStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNotOperator(bf2Parser.NotOperatorContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code VariableBool}
 	 * labeled alternative in {@link bf2Parser#boolStatement}.
 	 * @param ctx the parse tree

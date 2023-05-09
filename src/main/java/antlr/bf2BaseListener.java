@@ -221,6 +221,18 @@ public class bf2BaseListener implements bf2Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNotOperator(bf2Parser.NotOperatorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNotOperator(bf2Parser.NotOperatorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterVariableBool(bf2Parser.VariableBoolContext ctx) { }
 	/**
 	 * {@inheritDoc}

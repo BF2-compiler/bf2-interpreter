@@ -18,7 +18,7 @@ public class BF2App {
     public static void main(String[] args) {
         if(args.length != 1)
         {
-            System.err.println("Usage: file name");
+            System.err.println("Usage: no filename with program");
         }
         else {
             String fileName = args[0];
