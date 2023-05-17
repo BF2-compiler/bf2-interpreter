@@ -11,13 +11,13 @@ import java.util.Objects;
 public class AntlrToProgram extends bf2BaseVisitor<Program>{
 
     public List<String> semanticErrors = new ArrayList<>();
+    public Board board = new Board();
 
     @Override
     public Program visitProgram(bf2Parser.ProgramContext ctx) {
         int sizeX = Integer.parseInt(ctx.getChild(0).getText());
         int sizeY = Integer.parseInt(ctx.getChild(2).getText());
-
-        Board.setInitialBoard(sizeX, sizeY);
+        board.setInitialBoard(sizeX, sizeY);
 
         Program program  = new Program();
 
