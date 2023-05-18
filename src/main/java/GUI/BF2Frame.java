@@ -14,19 +14,18 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Component;
 
-import javax.swing.Timer;
 
 /**
  * {@summary} A class to represent a main frame in the GUI
- * @param timer - Timer object used to smoothly change font
- * @param fontSize - default to 20
  * @param dimensions - Window dimensions
+ * @param rows - number of rows in a frame
+ * @param cols - number of columns in a frame
  */
 public class BF2Frame extends JFrame {
 
-    private Timer timer;
-    private int fontSize = 20;
     public Dimension dimensions = new Dimension(300, 300);
+    int rows;
+    int cols;
 
     public BF2Frame() {
 
@@ -45,9 +44,12 @@ public class BF2Frame extends JFrame {
                 var dim = Math.min(getSize().height, getSize().width);
                 int newFontSize = dim / 20;
 
-                if (newFontSize != fontSize) {
-                    animateFontSizeChange(newFontSize);
-                }
+                int new_width = getWidth() / cols;
+                int new_height = getHeight() / rows;
+
+                resizePanels(new_width, new_height);
+                animateFontSizeChange(newFontSize);
+
             }
         });
 
@@ -89,8 +91,12 @@ public class BF2Frame extends JFrame {
 
         for (int i = 0; i < Board.SIZE_Y; i++) {
             for (int j = 0; j < Board.SIZE_X; j++) {
-                BF2TextPanel panel = new BF2TextPanel(Board.mainBoard[i][j].getValue_());
-                this.add(panel);
+                this.add(new JTextArea(Integer.toString(Board.mainBoard[i][j].getValue_())) {
+                    @Override
+                    public void setEditable(boolean arg0) {
+                        super.setEditable(false);
+                    }
+                });
             }
         }
     }
@@ -113,45 +119,37 @@ public class BF2Frame extends JFrame {
             @Override
             public void setEditable(boolean arg0) {
                 super.setEditable(false);
+                super.setWrapStyleWord(true);
+                super.setLineWrap(true);
             }
         });
     }
-    /**
+
+     /**
      * {@summary} Function to set new font size in all the components of the frame
      * @param newFontSize - size of font after resize calculation
      * @return None
      */
     private void animateFontSizeChange(int newFontSize) {
-        
-        if (timer != null && timer.isRunning()) {
-            timer.stop();
+
+        Component[] components = this.getContentPane().getComponents();  
+              
+        for (Component c : components) {
+            c.setFont(new Font("Monospaced", Font.PLAIN, newFontSize));
         }
+    }
 
-        int diff = newFontSize - fontSize;
-        int sign = Integer.signum(diff);
-        int duration = Math.abs(diff) / 10;
-        final int[] t = { 0 };
-
+    /**
+     * {@summary} Function to resize all the components of the frame
+     * @param newWidth - window width
+     * @param newHeight - window height
+     * @return None
+     */
+    private void resizePanels(int newWidth, int newHeihgt) {
         Component[] components = this.getContentPane().getComponents();
-        
-        timer = new Timer(10, e -> {
-            double x = (double)t[0] / duration;
-            double y = 2 * x - x * x;
-            int size = fontSize + (int)(sign * Math.round(diff * y));
 
-            for (Component c : components) {
-                c.setFont(new Font("Monospaced", Font.PLAIN, size));
-            }
-
-            if (t[0]++ >= duration) {
-                timer.stop();
-                fontSize = newFontSize;
-                for (Component c : components) {
-                    c.setFont(new Font("Monospaced", Font.PLAIN, newFontSize));
-                }
-            }
-        });
-
-        timer.start();
+        for (Component c : components) {
+            c.setSize(newWidth, newHeihgt);
+        }
     }
 }

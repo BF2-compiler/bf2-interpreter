@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.Font;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -24,5 +26,9 @@ public class BF2TextPanel extends JPanel {
 
     public void AddText() {
         this.add(new JLabel(this.text));
+    }
+
+    public void setFontSize(int size) {
+        this.setFont(new Font("Monospaced", Font.PLAIN, size));
     }
 }
