@@ -44,9 +44,9 @@ Here are some things that improve the *Brainf**ck* and help with building more c
     - *do while*
     - *do*
 - Embeded functions
-    - PIRNT_AS_INT
-    - PRINT_AS_STRING
-    - PRINT_AS_COLORS
+    - READ_AS_INT
+    - READ_AS_STRING
+    - READ_AS_COLORS
 
 
 ## Installation 
