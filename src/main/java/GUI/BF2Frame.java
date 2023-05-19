@@ -17,9 +17,6 @@ import java.awt.Component;
 
 /**
  * {@summary} A class to represent a main frame in the GUI
- * @param dimensions - Window dimensions
- * @param rows - number of rows in a frame
- * @param cols - number of columns in a frame
  */
 public class BF2Frame extends JFrame {
 
@@ -59,7 +56,6 @@ public class BF2Frame extends JFrame {
 
     /**
     * {@summary} This function is used to add a number of panels of type {@code BF2ColorPanel} to the main frame
-    * @return void
     * @see BF2ColorPanel
     */
     public void print_as_colors() {
@@ -82,7 +78,6 @@ public class BF2Frame extends JFrame {
 
     /**
      * {@summary} This function is used to add a number of panels of type {@code BF2TextPanel} to the main frame
-     * @return void
      * @see BF2TextPanel
      */
     public void print_as_int() {
@@ -103,7 +98,6 @@ public class BF2Frame extends JFrame {
 
     /**
      * {@summary} This function is used to add one {@code JTextArea} to the main frame and set it to be non-editable
-     * @return void
      * @see JTextArea
      */
     public void print_as_string() {
@@ -128,8 +122,7 @@ public class BF2Frame extends JFrame {
      /**
      * {@summary} Function to set new font size in all the components of the frame
      * @param newFontSize - size of font after resize calculation
-     * @return None
-     */
+      */
     private void animateFontSizeChange(int newFontSize) {
 
         Component[] components = this.getContentPane().getComponents();  
@@ -143,13 +136,12 @@ public class BF2Frame extends JFrame {
      * {@summary} Function to resize all the components of the frame
      * @param newWidth - window width
      * @param newHeight - window height
-     * @return None
      */
-    private void resizePanels(int newWidth, int newHeihgt) {
+    private void resizePanels(int newWidth, int newHeight) {
         Component[] components = this.getContentPane().getComponents();
 
         for (Component c : components) {
-            c.setSize(newWidth, newHeihgt);
+            c.setSize(newWidth, newHeight);
         }
     }
 }
