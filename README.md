@@ -92,7 +92,7 @@ vim my_program.bf2
 Run the program
 
 ```bash
-  
+  java 19 src/main/interpreter/Bf2App.java src/my_program.bf2
 ```
 
 
