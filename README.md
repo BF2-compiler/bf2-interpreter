@@ -12,7 +12,7 @@ It's our take on *Brainf**k* programming language with some twists and additiona
 
 ## Documentation 📖
 Documtnation is right here:
-[Documentation](https://linktodocumentation)
+[Documentation](https://github.com/BF2-compiler/bf2-interpreter/wiki)
 
 
 ## Demo 
